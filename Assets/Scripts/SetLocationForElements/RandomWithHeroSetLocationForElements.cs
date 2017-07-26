@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomWithHeroSetLocationForElements : RandomSetLocationForElements {
     protected override IEnumerable<Cell> GetProhibitedForUsingCells(Field field) {
-        var hero = Resources.Load<GameObject>("Prefabs/Hero");
+        var hero = Resources.Load<GameObject>("Prefabs/Player");
         if(hero == null)
             return null;
         var cellsWithHero = field.FindAll(hero);

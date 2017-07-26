@@ -24,8 +24,8 @@ public class MapCreator : MonoBehaviour {
         field.ForEach(cell => {
             if(!cell.IsEmpty()) {
                 var element = cell.GameObject;
-                element.transform.position = new Vector3(cell.IndexRow, 1, cell.IndexColumn);
-                Instantiate(element);
+                var newGameObject = Instantiate(element);
+                newGameObject.transform.position = new Vector3(cell.IndexRow, element.transform.position.y, cell.IndexColumn);
             }
         });
     }
@@ -33,12 +33,13 @@ public class MapCreator : MonoBehaviour {
     private void InitializeCamera() {
         if(cameraPrefab == null)
             return;
-        Single onCenterWithOffsetByWidthMap = (Single)(width * 70 / 100.0);
-        Single heightCamera = (Single)(length / width * onCenterWithOffsetByWidthMap);
-        Single onCenterByHeightMap = (Single)(length / 2.0);
-        cameraPrefab.transform.position = new Vector3(onCenterWithOffsetByWidthMap, heightCamera, onCenterByHeightMap);
-        cameraPrefab.transform.rotation = Quaternion.Euler(80, 270, 0);
-        cameraPrefab.fieldOfView = 100;
+        Single byBorderWidthMap = width;
+        Debug.Log(Mathf.Atan(60));
+        Single heightCamera = byBorderWidthMap / Mathf.Sqrt(3);
+        Int32 byCenterLengthMap = (Int32)(length / 2.0);
+        cameraPrefab.transform.position = new Vector3(byBorderWidthMap, heightCamera, byCenterLengthMap);
+        cameraPrefab.transform.rotation = Quaternion.Euler(60, 270, 0);
+        cameraPrefab.fieldOfView = 75;
     }
 
     private void InitializeMap() {
@@ -65,9 +66,8 @@ public class MapCreator : MonoBehaviour {
         var components = GetComponents<BaseSetLocationForElements>();
         if(components == null || components.Length == 0)
             return;
-        foreach(var gameObjectsCreator in components) {
+        foreach(var gameObjectsCreator in components)
             gameObjectsCreator.InitializeElements();
-        }
     }
 
     private Boolean OnLeftOrRightBorder(Int32 indexColumn) {
