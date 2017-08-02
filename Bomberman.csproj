@@ -95,32 +95,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
+    <Compile Include="Assets\ElementSettings\CSettings.cs" />
+    <Compile Include="Assets\ElementSettings\EnemySettings.cs" />
+    <Compile Include="Assets\ElementSettings\MovingObjectSettings.cs" />
+    <Compile Include="Assets\ElementSettings\PlayerSettings.cs" />
+    <Compile Include="Assets\ElementSettings\SandCubeSettings.cs" />
+    <Compile Include="Assets\Extensions.cs" />
+    <Compile Include="Assets\GameElements\ConcreteCube.cs" />
+    <Compile Include="Assets\GameElements\DynamicGameObject.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObjectCrator.cs" />
+    <Compile Include="Assets\GameElements\ElementCollection.cs" />
+    <Compile Include="Assets\GameElements\Enemy.cs" />
+    <Compile Include="Assets\GameElements\GameObjectLoader.cs" />
     <Compile Include="Assets\GameElements\MapFloor.cs" />
+    <Compile Include="Assets\GameElements\MovingObject.cs" />
+    <Compile Include="Assets\GameElements\Player.cs" />
+    <Compile Include="Assets\GameElements\SandCube.cs" />
+    <Compile Include="Assets\GameLevels\Scene.cs" />
+    <Compile Include="Assets\GameMap\BaseMap.cs" />
+    <Compile Include="Assets\GameMap\Cell.cs" />
+    <Compile Include="Assets\GameMap\EmptyMap.cs" />
+    <Compile Include="Assets\GameMap\Field.cs" />
     <Compile Include="Assets\GameMap\GameMap.cs" />
     <Compile Include="Assets\GameMap\GameMapWithComponents.cs" />
-    <Compile Include="Assets\GameElements\DynamicGameObject.cs" />
-    <Compile Include="Assets\GameElements\GameObjectLoader.cs" />
-    <Compile Include="Assets\GameElements\MovingObject.cs" />
-    <Compile Include="Assets\MovingGameElements\BaseMovingAbility.cs" />
-    <Compile Include="Assets\MovingGameElements\BaseRotatingAbility.cs" />
-    <Compile Include="Assets\GameMap\Cell.cs" />
-    <Compile Include="Assets\Extensions.cs" />
-    <Compile Include="Assets\GameMap\Field.cs" />
     <Compile Include="Assets\GameMap\MapSize.cs" />
-    <Compile Include="Assets\GameElements\ElementCollection.cs" />
-    <Compile Include="Assets\GameElements\Proba.cs" />
-    <Compile Include="Assets\GameMap\EmptyMap.cs" />
-    <Compile Include="Assets\GameMap\BaseMap.cs" />
-    <Compile Include="Assets\MovingGameElements\PlayerMoving.cs" />
-    <Compile Include="Assets\MovingGameElements\PlayerRotate.cs" />
-    <Compile Include="Assets\MovingGameElements\PlayerSmoothMoving.cs" />
+    <Compile Include="Assets\MovingGameElements\BaseAbility.cs" />
+    <Compile Include="Assets\MovingGameElements\BaseMovingAbilityWithWallpass.cs" />
+    <Compile Include="Assets\MovingGameElements\BaseRotatingAbility.cs" />
+    <Compile Include="Assets\MovingGameElements\BaseMovingAbility.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementBase.cs" />
+    <Compile Include="Assets\MovingGameElements\EnemyMoving\EnemySmoothMoving.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementForEnemy.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothRotation.cs" />
+    <Compile Include="Assets\MovingGameElements\PlayerMoving\PlayerMoving.cs" />
+    <Compile Include="Assets\MovingGameElements\PlayerMoving\PlayerRotate.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementForPlayer.cs" />
+    <Compile Include="Assets\MovingGameElements\PlayerMoving\PlayerSmoothMoving.cs" />
     <Compile Include="Assets\PlacementMethods\BasePlacementMethod.cs" />
     <Compile Include="Assets\PlacementMethods\RandomPlacementMethod.cs" />
     <Compile Include="Assets\PlacementMethods\RandomPlacementMethodWithConsideringPlayerDistance.cs" />
-    <Compile Include="Assets\PlacementMethods\CornerPlacementMethod.cs" />
-    <Compile Include="Assets\Scene.cs" />
+    <Compile Include="Assets\PlayerDeath.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

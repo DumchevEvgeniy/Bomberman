@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 
-public class BaseRotatingAbility : MonoBehaviour {
+public abstract class BaseRotatingAbility : BaseAbility {
+    protected Single rotatingSpeed;
 
+    protected override void OnStart() {
+        base.OnStart();
+        this.rotatingSpeed = movingObjectSettings.rotatingSpeed;
+    }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 
 public class RandomPlacementMethodWithConsideringPlayerDistance : RandomPlacementMethod {
     protected override IEnumerable<Cell> GetProhibitedForUsingCells(Field field) {
-        var cellsWithHero = field.FindAll(new Player());
+        var cellsWithHero = field.FindAll(typeof(Player));
         if(cellsWithHero == null || cellsWithHero.IsEmpty())
             return null;
         var cellWithHero = cellsWithHero.First();

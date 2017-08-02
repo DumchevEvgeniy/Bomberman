@@ -36,12 +36,16 @@ public class Field : IEnumerable<Cell> {
     }
 
     public IEnumerable<Cell> FindAll(GameObject element) {
-        return this.Where(cell => 
-            !cell.IsEmpty() && cell.DynamicGameObject.ToGameObject().Equals(element));
+        return FindAll(d => d.ToGameObject().Equals(element));
     }
     public IEnumerable<Cell> FindAll(DynamicGameObject element) {
-        return this.Where(cell =>
-            !cell.IsEmpty() && cell.DynamicGameObject.Equals(element));
+        return FindAll(d => d.Equals(element));
+    }
+    public IEnumerable<Cell> FindAll(Type elementType) {
+        return FindAll(d => d.GetType() == elementType);
+    }
+    private IEnumerable<Cell> FindAll(Predicate<DynamicGameObject> predicate) {
+        return this.Where(cell => !cell.IsEmpty() && predicate(cell.DynamicGameObject));
     }
 
     public IEnumerable<Cell> GetEmptyCells() {

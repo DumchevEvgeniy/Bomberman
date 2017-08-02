@@ -214,8 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cccaf699935bc41abe6c846f56d533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 17
+  length: 31
   width: 13
+  sandCubesCount: 54
 --- !u!4 &1464408242
 Transform:
   m_ObjectHideFlags: 0

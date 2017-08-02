@@ -8,7 +8,7 @@ public abstract class DynamicGameObject {
         return Resources.Load<GameObject>(GetPrefabName());
     }
 
-    public GameObject CreateGameObject() {
+    public virtual GameObject CreateGameObject() {
         return GameObject.Instantiate<GameObject>(ToGameObject());
     }
 
