@@ -2,17 +2,17 @@
 using UnityEngine;
 
 public abstract class BaseAbility : MonoBehaviour {
-    public MovingObjectSettings movingObjectSettings;
+    public MovementObjectSettings movementObjectSettings;
 
     void Start() {
-        movingObjectSettings = GetComponent<MovingObjectSettings>();
-        if(movingObjectSettings == null)
+        movementObjectSettings = GetComponent<MovementObjectSettings>();
+        if(movementObjectSettings == null)
             return;
         OnStart();
     }
 
     void Update() {
-        if(!movingObjectSettings.IsAlive())
+        if(!movementObjectSettings.IsAlive())
             return;
         OnUpdate();
     }

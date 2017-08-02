@@ -4,22 +4,22 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 
-public class Field : IEnumerable<Cell> {
-    private Cell[,] field;
+public class Field : IEnumerable<CellOnField> {
+    private CellOnField[,] field;
     public Int32 Length { get; private set; }
     public Int32 Width { get; private set; }
 
     public Field(Int32 length, Int32 width) {
         Length = length;
         Width = width;
-        field = new Cell[width, length];
+        field = new CellOnField[width, length];
         InitializeCells();
     }
 
     private void InitializeCells() {
         for(Int32 indexRow = 0; indexRow < Width; indexRow++)
             for(Int32 indexColumn = 0; indexColumn < Length; indexColumn++)
-                field[indexRow, indexColumn] = new Cell(indexRow, indexColumn, this);
+                field[indexRow, indexColumn] = new CellOnField(indexRow, indexColumn, this);
     }
 
     public Field AddElement(Int32 indexRow, Int32 indexColumn, DynamicGameObject element) {
@@ -31,24 +31,24 @@ public class Field : IEnumerable<Cell> {
     public DynamicGameObject GetDynamicGameObject(Int32 indexRow, Int32 indexColumn) {
         return GetCell(indexRow, indexColumn).DynamicGameObject;
     }
-    public Cell GetCell(Int32 indexRow, Int32 indexColumn) {
+    public CellOnField GetCell(Int32 indexRow, Int32 indexColumn) {
         return field[indexRow, indexColumn];
     }
 
-    public IEnumerable<Cell> FindAll(GameObject element) {
+    public IEnumerable<CellOnField> FindAll(GameObject element) {
         return FindAll(d => d.ToGameObject().Equals(element));
     }
-    public IEnumerable<Cell> FindAll(DynamicGameObject element) {
+    public IEnumerable<CellOnField> FindAll(DynamicGameObject element) {
         return FindAll(d => d.Equals(element));
     }
-    public IEnumerable<Cell> FindAll(Type elementType) {
+    public IEnumerable<CellOnField> FindAll(Type elementType) {
         return FindAll(d => d.GetType() == elementType);
     }
-    private IEnumerable<Cell> FindAll(Predicate<DynamicGameObject> predicate) {
+    private IEnumerable<CellOnField> FindAll(Predicate<DynamicGameObject> predicate) {
         return this.Where(cell => !cell.IsEmpty() && predicate(cell.DynamicGameObject));
     }
 
-    public IEnumerable<Cell> GetEmptyCells() {
+    public IEnumerable<CellOnField> GetEmptyCells() {
         return this.Where(cell => cell.IsEmpty());
     }
     public Boolean OnField(Int32 indexRow, Int32 indexColumn) {
@@ -56,7 +56,7 @@ public class Field : IEnumerable<Cell> {
             indexColumn >= 0 && indexColumn < Length;
     }
 
-    public IEnumerator<Cell> GetEnumerator() {
+    public IEnumerator<CellOnField> GetEnumerator() {
         for(Int32 indexRow = 0; indexRow < Width; indexRow++)
             for(Int32 indexColumn = 0; indexColumn < Length; indexColumn++)
                 yield return GetCell(indexRow, indexColumn);

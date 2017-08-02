@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerMoving : BaseMovingAbilityWithWallpass {
+public class PlayerMovement : BaseMovementAbilityWithWallpass {
     private CharacterController characterController;
 
     protected override void OnStart() {
@@ -11,8 +11,8 @@ public class PlayerMoving : BaseMovingAbilityWithWallpass {
 
     protected override void OnUpdate() {
         base.OnUpdate();
-        Single deltaX = -Input.GetAxis("Vertical") * movingSpeed;
-        Single deltaZ = Input.GetAxis("Horizontal") * movingSpeed;
+        Single deltaX = -Input.GetAxis("Vertical") * movementSpeed;
+        Single deltaZ = Input.GetAxis("Horizontal") * movementSpeed;
         var movement = new Vector3(deltaX, 0, deltaZ);
         characterController.SimpleMove(movement);
     }

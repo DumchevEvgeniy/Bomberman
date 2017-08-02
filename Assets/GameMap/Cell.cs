@@ -1,22 +1,23 @@
 ﻿using System;
-using UnityEngine;
 
 public class Cell {
     public Int32 IndexRow { get; private set; }
     public Int32 IndexColumn { get; private set; }
-    public Field Owner { get; private set; }
-    public DynamicGameObject DynamicGameObject { get; set; }
-    
-    public Cell(Int32 indexRow, Int32 indexColumn, Field owner) {
+
+    public Cell(Int32 indexRow, Int32 indexColumn) {
         IndexRow = indexRow;
         IndexColumn = indexColumn;
-        Owner = owner;
     }
 
-    public Boolean IsEmpty() {
-        return DynamicGameObject == null;
+    public override Boolean Equals(Object obj) {
+        if(obj == null)
+            return false;
+        var cell = obj as Cell;
+        if(cell == null)
+            return false;
+        return IndexRow == cell.IndexRow && IndexColumn == cell.IndexColumn;
     }
-    public void PutGameObject(DynamicGameObject dynamicGameObject) {
-        DynamicGameObject = dynamicGameObject;
+    public override Int32 GetHashCode() {
+        return IndexRow | IndexColumn;
     }
 }

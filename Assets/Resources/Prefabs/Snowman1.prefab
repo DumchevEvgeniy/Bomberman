@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 135807532252034916}
   - component: {fileID: 114803387621928862}
   - component: {fileID: 54659383956978728}
+  - component: {fileID: 114318199529961468}
   m_Layer: 0
   m_Name: Snowman1
   m_TagString: Player
@@ -978,6 +979,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000001}
   m_Center: {x: -0.0000008940697, y: -1.4432899e-15, z: -0.00000032782555}
+--- !u!114 &114318199529961468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434471160203688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c3870c9378f594d8fd9b63e88c349f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  rotationSpeed: 0
+  wallpass: 0
+  numberOfLives: 0
+  gamePoints: 0
+  countBomb: 0
 --- !u!114 &114409081178517498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -989,8 +1007,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8fdecf833e06e49b68cc80854b1fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 1.2
-  movingDistance: 0.2
+  movementObjectSettings: {fileID: 0}
+  wallpass: 0
+  movementDistance: 1
 --- !u!114 &114674864888061190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1002,7 +1021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99cbff97b391914097d1921fc436890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  movementObjectSettings: {fileID: 0}
+  wallpass: 0
 --- !u!114 &114803387621928862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1025,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe87e2108d20d14da2523ed67d01ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRotate: 5
+  movementObjectSettings: {fileID: 0}
 --- !u!135 &135083426613266798
 SphereCollider:
   m_ObjectHideFlags: 1

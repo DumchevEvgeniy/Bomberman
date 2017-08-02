@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerRotate : BaseRotatingAbility {
+public class PlayerRotation : BaseRotationAbility {
     private const Int32 circleQuartet = 90;
     private const Int32 circleHalf = 180;
     private const Int32 circleLength = 360;
@@ -9,7 +9,7 @@ public class PlayerRotate : BaseRotatingAbility {
     protected override void OnUpdate() {
         var newPosition = GetNewPosition();
         var oldPosition = transform.rotation.eulerAngles.y;
-        var rotation = new Vector3(0, GetRotationCorner(oldPosition, newPosition), 0) * rotatingSpeed * Time.deltaTime;
+        var rotation = new Vector3(0, GetRotationCorner(oldPosition, newPosition), 0) * rotationSpeed * Time.deltaTime;
         transform.Rotate(rotation);
     }
 

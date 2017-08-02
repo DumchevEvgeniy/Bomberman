@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemySettings : MovingObjectSettings {
+public class EnemySettings : MovementObjectSettings {
     public String nickname;
     public Int32 points;
 

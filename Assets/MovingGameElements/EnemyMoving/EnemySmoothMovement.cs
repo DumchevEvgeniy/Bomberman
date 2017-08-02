@@ -1,37 +1,37 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemySmoothMoving : BaseMovingAbilityWithWallpass {
+public class EnemySmoothMovement : BaseMovementAbilityWithWallpass {
     public Single rangeLook = 1f;
-    public Single movingDistance = 1f;
-    public Single rotatingSpeed = 50f;
-    private SmoothMovementForEnemy smoothMoving;
-    private SmoothRotation smoothRotating;
+    public Single movementDistance = 1f;
+    public Single rotationSpeed = 50f;
+    private SmoothMovementForEnemy smoothMovement;
+    private SmoothRotation smoothRotation;
 
     protected override void OnStart() {
         base.OnStart();
-        smoothRotating = new SmoothRotation(gameObject) {
+        smoothRotation = new SmoothRotation(gameObject) {
             Distance = GetAngle(),
-            Speed = rotatingSpeed,
+            Speed = rotationSpeed,
             Direction = new Vector3(0, 1, 0)
         };
-        smoothMoving = new SmoothMovementForEnemy(gameObject) {
-            Distance = movingDistance,
-            Speed = movingSpeed,
+        smoothMovement = new SmoothMovementForEnemy(gameObject) {
+            Distance = movementDistance,
+            Speed = movementSpeed,
         };
-        smoothMoving.AddPostAction(RotateAfterMoving);
+        smoothMovement.AddPostAction(RotateAfterMoving);
     }
 
     protected override void OnUpdate() {
         base.OnUpdate();
-        if(smoothMoving.Started || smoothRotating.Started)
+        if(smoothMovement.Started || smoothRotation.Started)
             return;
         if(CanMove()) {
 
-            StartCoroutine(smoothMoving.MakeItSmooth());
-            if(!smoothMoving.Started) {
-                smoothRotating.Distance = GetAngle();
-                StartCoroutine(smoothRotating.MakeItSmooth());
+            StartCoroutine(smoothMovement.MakeItSmooth());
+            if(!smoothMovement.Started) {
+                smoothRotation.Distance = GetAngle();
+                StartCoroutine(smoothRotation.MakeItSmooth());
             }
         }
         else
@@ -39,8 +39,8 @@ public class EnemySmoothMoving : BaseMovingAbilityWithWallpass {
     }
 
     private void StartSmoothRotating() {
-        smoothRotating.Distance = GetAngle();
-        StartCoroutine(smoothRotating.MakeItSmooth());
+        smoothRotation.Distance = GetAngle();
+        StartCoroutine(smoothRotation.MakeItSmooth());
     }
 
     private void RotateAfterMoving(GameObject gameObject) {

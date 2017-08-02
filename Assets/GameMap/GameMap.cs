@@ -12,7 +12,7 @@ public class GameMap : EmptyMap {
                 cell.PutGameObject(concreteCubeTemplate);
     }
 
-    private Boolean IsCellForConcreteCube(Cell cell) {
+    private Boolean IsCellForConcreteCube(CellOnField cell) {
         return OnLeftOrRightBorder(cell.IndexColumn) ||
                 OnTopOrBottomBorder(cell.IndexRow) ||
                 OnNeededPosition(cell.IndexRow, cell.IndexColumn);

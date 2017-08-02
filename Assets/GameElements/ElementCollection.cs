@@ -10,7 +10,7 @@ public class ElementCollection<T> where T : BasePlacementMethod, new() {
         this.elementsCount = elementsCount;
     }
 
-    public IEnumerable<Cell> GetPlacements(Field field) {
+    public IEnumerable<CellOnField> GetPlacements(Field field) {
         return new T().GetPlacements(field, elementsCount);
     }
 }
