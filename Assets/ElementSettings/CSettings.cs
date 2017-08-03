@@ -13,12 +13,12 @@ public class CSettings : MonoBehaviour {
         transform.SetPositionAndRotation(positionOffset, cameraRotation);
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if(player == null)
             player = FindPlayer();
         if(player != null) {
             var newPosition = player.transform.position + positionOffset;
-            transform.Translate((newPosition - oldPosition) * Time.deltaTime * speed, Space.World);
+            transform.Translate((newPosition - oldPosition) /** Time.deltaTime * speed*/, Space.World);
             oldPosition = transform.position;
         }
     }

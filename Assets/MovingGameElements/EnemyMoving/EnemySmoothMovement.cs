@@ -27,7 +27,6 @@ public class EnemySmoothMovement : BaseMovementAbilityWithWallpass {
         if(smoothMovement.Started || smoothRotation.Started)
             return;
         if(CanMove()) {
-
             StartCoroutine(smoothMovement.MakeItSmooth());
             if(!smoothMovement.Started) {
                 smoothRotation.Distance = GetAngle();
