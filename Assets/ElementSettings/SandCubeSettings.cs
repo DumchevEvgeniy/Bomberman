@@ -2,28 +2,24 @@
 using UnityEngine;
 
 class SandCubeSettings : MonoBehaviour {
-    private BoxCollider boxCollider;
+    public Boolean playerWallpass = false;
+    private BoxCollider boxCollider = null;
 
-    private void Start() {
-        AddBoxCollider();
-        //boxCollider.isTrigger = true;
+    private void Update() {
+        if(playerWallpass && BoxColliderIsActive())
+            RemoveBoxCollider();
+        if(!playerWallpass && !BoxColliderIsActive())
+            AddBoxCollider();
     }
-
-    //private void OnTriggerEnter(Collider other) {
-    //    if(IsMovingObject(other.gameObject)) {
-    //        var movingObjectSettings = other.gameObject.GetComponent<MovingObjectSettings>();
-    //        if(!movingObjectSettings.wallpass) {
-    //            AddBoxCollider();
-    //        }
-    //    }
-    //}
 
     private void AddBoxCollider() {
         boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.size = new Vector3(1, 1, 1); 
+        boxCollider.size = new Vector3(1, 1, 1);
     }
-
-    private Boolean IsMovingObject(GameObject gameObject) {
-        return gameObject.tag == Player.Tag || gameObject.tag == Enemy.Tag;
+    private void RemoveBoxCollider() {
+        boxCollider.isTrigger = true;
+    }
+    private Boolean BoxColliderIsActive() {
+        return boxCollider != null;
     }
 }

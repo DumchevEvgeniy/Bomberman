@@ -97,12 +97,16 @@
   <ItemGroup>
     <Compile Include="Assets\BombDeath.cs" />
     <Compile Include="Assets\Bomber.cs" />
+    <Compile Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Scripts\HUDFPS.cs" />
+    <Compile Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Scripts\PDS_GameController.cs" />
+    <Compile Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Scripts\ScrollingUVs_PDS.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\AliveObjectSettings.cs" />
     <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
-    <Compile Include="Assets\ElementSettings\CSettings.cs" />
-    <Compile Include="Assets\ElementSettings\EnemySettings.cs" />
-    <Compile Include="Assets\ElementSettings\MovementObjectSettings.cs" />
-    <Compile Include="Assets\ElementSettings\PlayerSettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\EnemySettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\MovementObjectSettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\PlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\SandCubeSettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\WallpassPlayerSettings.cs" />
     <Compile Include="Assets\Extensions.cs" />
     <Compile Include="Assets\GameElements\Bomb.cs" />
     <Compile Include="Assets\GameElements\ConcreteCube.cs" />
@@ -115,7 +119,7 @@
     <Compile Include="Assets\GameElements\MovementObject.cs" />
     <Compile Include="Assets\GameElements\Player.cs" />
     <Compile Include="Assets\GameElements\SandCube.cs" />
-    <Compile Include="Assets\GameLevels\Scene.cs" />
+    <Compile Include="Assets\GameLevels\LevelCreator.cs" />
     <Compile Include="Assets\GameMap\BaseMap.cs" />
     <Compile Include="Assets\GameMap\Cell.cs" />
     <Compile Include="Assets\GameMap\CellOnField.cs" />
@@ -124,22 +128,45 @@
     <Compile Include="Assets\GameMap\GameMap.cs" />
     <Compile Include="Assets\GameMap\GameMapWithComponents.cs" />
     <Compile Include="Assets\GameMap\MapSize.cs" />
-    <Compile Include="Assets\MovingGameElements\BaseAbility.cs" />
-    <Compile Include="Assets\MovingGameElements\BaseMovementAbilityWithWallpass.cs" />
-    <Compile Include="Assets\MovingGameElements\BaseRotationAbility.cs" />
     <Compile Include="Assets\MovingGameElements\BaseMovementAbility.cs" />
-    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementBase.cs" />
     <Compile Include="Assets\MovingGameElements\EnemyMoving\EnemySmoothMovement.cs" />
-    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementForEnemy.cs" />
-    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothRotation.cs" />
+    <Compile Include="Assets\MovingGameElements\PlayerMoving\BasePlayerMovement.cs" />
     <Compile Include="Assets\MovingGameElements\PlayerMoving\PlayerMovement.cs" />
     <Compile Include="Assets\MovingGameElements\PlayerMoving\PlayerRotation.cs" />
-    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementForPlayer.cs" />
     <Compile Include="Assets\MovingGameElements\PlayerMoving\PlayerSmoothMovement.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementBase.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementForEnemy.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothMovementForPlayer.cs" />
+    <Compile Include="Assets\MovingGameElements\SmoothMoving\SmoothRotation.cs" />
     <Compile Include="Assets\PlacementMethods\BasePlacementMethod.cs" />
     <Compile Include="Assets\PlacementMethods\RandomPlacementMethod.cs" />
     <Compile Include="Assets\PlacementMethods\RandomPlacementMethodWithConsideringPlayerDistance.cs" />
     <Compile Include="Assets\PlayerDeath.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\ReadMe.txt" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_add.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_add_stretch.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_alpha.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_alpha_stretch.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\unity5\Particle_Softrim_Dissolve_additive.shader" />
+    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\unity5\Particle_Softrim_Dissolve_alpha.shader" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

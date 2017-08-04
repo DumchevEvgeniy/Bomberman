@@ -12,9 +12,9 @@ public class Player : MovementObject {
 
     public override GameObject CreateGameObject() {
         var player = base.CreateGameObject();
-        var playerSettings = player.AddComponent<PlayerSettings>();
-        playerSettings.InitializeMovingSettings(MovementSpeed, RotationSpeed, Wallpass);
-        playerSettings.Initialize(startNumberOfLives, startGamePoints);
+        //var playerSettings = player.AddComponent<PlayerSettings>();
+        //playerSettings.InitializeMovingSettings(MovementSpeed, RotationSpeed, Wallpass);
+        //playerSettings.Initialize(startNumberOfLives, startGamePoints);
         return player;
     }
 
@@ -23,6 +23,6 @@ public class Player : MovementObject {
     }
 
     protected override String GetPrefabName() {
-        return "Prefabs/Snowman1";
+        return "Prefabs/Snowman";
     }
 }

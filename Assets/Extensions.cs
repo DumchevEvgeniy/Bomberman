@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class EnumerableExtensions {
     public static Boolean IsEmpty<T>(this IEnumerable<T> collection) {
@@ -27,6 +28,20 @@ public static class GameObjectExtensions {
                 return gameObject.SetNewPosition(x, y, value);
         }
         return gameObject;
+    }
+}
+
+public static class SceneAnalizer {
+    public static GameObject FindPlayer(this Scene scene) {
+        return GetAllElementsByTag(scene, Player.Tag).FirstOrDefault();
+    }
+
+    public static IEnumerable<GameObject> FindAllBreakCube(this Scene scene) {
+        return GetAllElementsByTag(scene, SandCube.Tag);
+    } 
+
+    public static IEnumerable<GameObject> GetAllElementsByTag(this Scene scene, String tag) {
+        return scene.GetRootGameObjects().Where(g => g.tag == tag);
     }
 }
 

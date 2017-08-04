@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerRotation : BaseRotationAbility {
+public class PlayerRotation : BaseMovementAbility {
     private const Int32 circleQuartet = 90;
     private const Int32 circleHalf = 180;
     private const Int32 circleLength = 360;

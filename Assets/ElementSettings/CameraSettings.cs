@@ -1,17 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraSettings : MonoBehaviour {
-    public Camera cameraAboveThePlayer;
+    private GameObject player;
     private Quaternion cameraRotation = Quaternion.Euler(55, 270, 0);
     private Vector3 positionOffset = new Vector3(5, 8, 0);
+    private Vector3 oldPosition;
 
     private void Start() {
-        cameraAboveThePlayer = GetComponent<Camera>();
-        Update();
+        oldPosition = positionOffset;
+        transform.SetPositionAndRotation(positionOffset, cameraRotation);
     }
 
-    private void Update() {
-        var playerTransform = GetComponentInParent<Transform>().parent;
-        cameraAboveThePlayer.transform.SetPositionAndRotation(playerTransform.position + positionOffset, cameraRotation);        
+    private void FixedUpdate() {
+        if(player == null)
+            player = gameObject.scene.FindPlayer();
+        if(player != null) {
+            var newPosition = player.transform.position + positionOffset;
+            transform.Translate((newPosition - oldPosition), Space.World);
+            oldPosition = transform.position;
+        }
     }
 }

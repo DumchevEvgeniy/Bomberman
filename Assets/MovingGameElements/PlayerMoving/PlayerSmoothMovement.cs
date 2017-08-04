@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerSmoothMovement : BaseMovementAbilityWithWallpass {
+public class PlayerSmoothMovement : BasePlayerMovement {
     private SmoothMovementForPlayer smoothMovement;
     public Single movementDistance = 1f;
 

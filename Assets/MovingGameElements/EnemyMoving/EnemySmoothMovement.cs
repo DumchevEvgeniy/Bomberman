@@ -1,10 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemySmoothMovement : BaseMovementAbilityWithWallpass {
+public class EnemySmoothMovement : BaseMovementAbility {
     public Single rangeLook = 1f;
     public Single movementDistance = 1f;
-    public Single rotationSpeed = 50f;
     private SmoothMovementForEnemy smoothMovement;
     private SmoothRotation smoothRotation;
 
