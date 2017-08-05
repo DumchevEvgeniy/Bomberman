@@ -2,8 +2,8 @@
 using UnityEngine;
 
 public class Player : MovementObject {
-    private readonly Int32 startGamePoints = 0;
-    private readonly Int32 startNumberOfLives = 3;
+    //private readonly Int32 startGamePoints = 0;
+    //private readonly Int32 startNumberOfLives = 3;
     public const String Tag = "Player";
 
     public Player(Single movementSpeed, Single rotationSpeed, Boolean wallpass = false) 

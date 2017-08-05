@@ -19,7 +19,7 @@ public class WallpassPlayerSettings : MovementObjectSettings {
     private void IndicateWallpassAbility() {
         var breakCubes = gameObject.scene.FindAllBreakCube();
         foreach(var cube in breakCubes) {
-            var cubeSetting = cube.GetComponent<SandCubeSettings>();
+            var cubeSetting = cube.GetComponent<BreakCubeSettings>();
             cubeSetting.playerWallpass = wallpass;
         }
         oldWallpass = wallpass;

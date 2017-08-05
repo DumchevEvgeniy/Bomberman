@@ -2,6 +2,7 @@
 using UnityEngine;
 
 public class Bomb : DynamicGameObject {
+    public const String Tag = "Bomb";
     private Cell cellForBomb;
 
     public Bomb(Cell cellForBomb) {

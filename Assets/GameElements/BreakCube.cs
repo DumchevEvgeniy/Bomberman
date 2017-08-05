@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-public class SandCube : DynamicGameObject {
+public class BreakCube : DynamicGameObject {
     public const String Tag = "BreakCube";
 
     protected override String GetPrefabName() {
-        return "Prefabs/SandCube";
+        return "Prefabs/BreakCube";
     }
 
     public override GameObject CreateGameObject() {
         var sandCube = base.CreateGameObject();
-        sandCube.AddComponent<SandCubeSettings>();
+        sandCube.AddComponent<BreakCubeSettings>();
         return sandCube;
     }
 }

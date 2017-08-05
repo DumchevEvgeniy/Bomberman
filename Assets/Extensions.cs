@@ -37,11 +37,11 @@ public static class SceneAnalizer {
     }
 
     public static IEnumerable<GameObject> FindAllBreakCube(this Scene scene) {
-        return GetAllElementsByTag(scene, SandCube.Tag);
+        return GetAllElementsByTag(scene, BreakCube.Tag);
     } 
 
     public static IEnumerable<GameObject> GetAllElementsByTag(this Scene scene, String tag) {
-        return scene.GetRootGameObjects().Where(g => g.tag == tag);
+        return scene.GetRootGameObjects().Where(g => g.CompareTag(tag));
     }
 }
 

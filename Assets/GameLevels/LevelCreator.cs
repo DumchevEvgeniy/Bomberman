@@ -14,7 +14,7 @@ public class LevelCreator : MonoBehaviour {
         gameMapWithComponents.AddElements(new ElementCollection<RandomPlacementMethod>(
             new Player(1, 2, false), 1));
         gameMapWithComponents.AddElements(new ElementCollection<RandomPlacementMethodWithConsideringPlayerDistance>(
-            new SandCube(), sandCubesCount));
+            new BreakCube(), sandCubesCount));
         gameMapWithComponents.AddElements(new ElementCollection<RandomPlacementMethodWithConsideringPlayerDistance>(
             new Enemy("Enemy", 100, 1, 2, false), 6));
         gameMapWithComponents.CreateAll();
