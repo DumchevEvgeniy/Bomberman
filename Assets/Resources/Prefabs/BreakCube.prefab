@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33297147177392102}
   - component: {fileID: 23065620665785892}
   m_Layer: 0
-  m_Name: SandCube
+  m_Name: BreakCube
   m_TagString: BreakCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 553e391da6626be48873e2026c2fa334, type: 2}
+  - {fileID: 2100000, guid: 7e181fd161a9d4c41a7d09c87806d01d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

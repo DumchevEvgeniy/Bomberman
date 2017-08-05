@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -95,23 +93,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BomberAbility\CunningBomberAbility.cs" />
-    <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\BombermanSettings.cs" />
-    <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\CunningBombermanSettings.cs" />
-    <Compile Include="Assets\ElementSettings\BombSettings.cs" />
     <Compile Include="Assets\BomberAbility\BomberAbility.cs" />
-    <Compile Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Scripts\HUDFPS.cs" />
-    <Compile Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Scripts\PDS_GameController.cs" />
-    <Compile Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Scripts\ScrollingUVs_PDS.cs" />
+    <Compile Include="Assets\BomberAbility\CunningBomberAbility.cs" />
+    <Compile Include="Assets\DownloadingResources\Particle\Scripts\HUDFPS.cs" />
+    <Compile Include="Assets\DownloadingResources\Particle\Scripts\PDS_GameController.cs" />
+    <Compile Include="Assets\DownloadingResources\Particle\Scripts\ScrollingUVs_PDS.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\AliveObjectSettings.cs" />
-    <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\EnemySettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\MovementObjectSettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\BombermanSettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\CunningBombermanSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\PlayerSettings.cs" />
-    <Compile Include="Assets\ElementSettings\BreakCubeSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\WallpassPlayerSettings.cs" />
+    <Compile Include="Assets\ElementSettings\BombSettings.cs" />
+    <Compile Include="Assets\ElementSettings\BreakCubeSettings.cs" />
+    <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
     <Compile Include="Assets\Extensions.cs" />
     <Compile Include="Assets\GameElements\Bomb.cs" />
+    <Compile Include="Assets\GameElements\BreakCube.cs" />
     <Compile Include="Assets\GameElements\ConcreteCube.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObject.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObjectCrator.cs" />
@@ -121,7 +120,6 @@
     <Compile Include="Assets\GameElements\MapFloor.cs" />
     <Compile Include="Assets\GameElements\MovementObject.cs" />
     <Compile Include="Assets\GameElements\Player.cs" />
-    <Compile Include="Assets\GameElements\BreakCube.cs" />
     <Compile Include="Assets\GameLevels\LevelCreator.cs" />
     <Compile Include="Assets\GameMap\BaseMap.cs" />
     <Compile Include="Assets\GameMap\Cell.cs" />
@@ -147,31 +145,30 @@
     <Compile Include="Assets\PlayerDeath.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\ReadMe.txt" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive_Opacity.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive_Opacity_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Additive_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit_Opacity.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit_Opacity_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\DissolveSoft_Alpha_Unlit_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive_Opacity.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive_Opacity_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Additive_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit_Opacity.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit_Opacity_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\legacy\Dissolve_Alpha_Unlit_softrim.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_add.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_add_stretch.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_alpha.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\softrim\Particle_softrim_alpha_stretch.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\unity5\Particle_Softrim_Dissolve_additive.shader" />
-    <None Include="Assets\DownloadingResources\Particle Dissolve Shader by Moonflower Carnivore\Shaders\unity5\Particle_Softrim_Dissolve_alpha.shader" />
+    <None Include="Assets\DownloadingResources\Particle\ReadMe.txt" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Additive.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Additive_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Additive_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Additive_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Unlit.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Unlit_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Unlit_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\DissolveSoft_Alpha_Unlit_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Additive.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Additive_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Additive_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Additive_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Unlit.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Unlit_Opacity.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Unlit_Opacity_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\legacy\Dissolve_Alpha_Unlit_softrim.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\softrim\Particle_softrim_add.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\softrim\Particle_softrim_add_stretch.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\softrim\Particle_softrim_alpha.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\softrim\Particle_softrim_alpha_stretch.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\unity5\Particle_Softrim_Dissolve_additive.shader" />
+    <None Include="Assets\DownloadingResources\Particle\Shaders\unity5\Particle_Softrim_Dissolve_alpha.shader" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

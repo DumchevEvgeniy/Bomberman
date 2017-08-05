@@ -8,6 +8,7 @@ TagManager:
   - BreakCube
   - PlayerComponenet
   - Bomb
+  - Bonus
   layers:
   - Default
   - TransparentFX
