@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-public class RandomPlacementMethodWithConsideringPlayerDistance : RandomPlacementMethod {
+public class RandomPlacementWithPlayerDistance : RandomPlacementOnEmptyPosition {
     protected override IEnumerable<CellOnField> GetProhibitedForUsingCells(Field field) {
         var cellsWithHero = field.FindAll(typeof(Player));
         if(cellsWithHero == null || cellsWithHero.IsEmpty())

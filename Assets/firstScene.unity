@@ -217,6 +217,11 @@ MonoBehaviour:
   length: 31
   width: 13
   sandCubesCount: 54
+  bonusBombsCount: 1
+  bonusFlamesCount: 1
+  bonusSpeedCount: 1
+  bonusWallpassCount: 1
+  bonusDetonatorCount: 1
 --- !u!4 &1464408242
 Transform:
   m_ObjectHideFlags: 0

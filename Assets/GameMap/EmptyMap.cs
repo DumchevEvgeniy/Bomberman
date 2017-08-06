@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class EmptyMap : BaeMap {
+public class EmptyMap : BaseMap {
     GameObject gameMap;
 
     public EmptyMap(Int32 length, Int32 width, DynamicGameObject gameMapTemplate) 
@@ -20,10 +20,10 @@ public class EmptyMap : BaeMap {
 
     public void CreateAll() {
         foreach(var cell in Field) {
-            if(cell.IsEmpty())
-                continue;
-            var element = cell.DynamicGameObject.CreateGameObject();
-            element.transform.position = new Vector3(cell.IndexRow, element.transform.position.y, cell.IndexColumn);
+            foreach(var dynamicGameObject in cell.DynamicGameObjects) {
+                var element = dynamicGameObject.CreateGameObject();
+                element.transform.position = new Vector3(cell.IndexRow, element.transform.position.y, cell.IndexColumn);
+            }
         }
     }
 }

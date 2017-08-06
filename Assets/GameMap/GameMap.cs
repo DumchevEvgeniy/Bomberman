@@ -9,7 +9,7 @@ public class GameMap : EmptyMap {
     private void InitializeConcreteCubes(DynamicGameObject concreteCubeTemplate) {
         foreach(var cell in Field)
             if(IsCellForConcreteCube(cell))
-                cell.PutGameObject(concreteCubeTemplate);
+                cell.AddGameObject(concreteCubeTemplate);
     }
 
     private Boolean IsCellForConcreteCube(CellOnField cell) {

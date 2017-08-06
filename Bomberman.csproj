@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -110,11 +112,12 @@
     <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
     <Compile Include="Assets\Extensions.cs" />
     <Compile Include="Assets\GameElements\Bomb.cs" />
+    <Compile Include="Assets\GameElements\Bonus.cs" />
     <Compile Include="Assets\GameElements\BreakCube.cs" />
     <Compile Include="Assets\GameElements\ConcreteCube.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObject.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObjectCrator.cs" />
-    <Compile Include="Assets\GameElements\ElementCollection.cs" />
+    <Compile Include="Assets\GameElements\GameElements.cs" />
     <Compile Include="Assets\GameElements\Enemy.cs" />
     <Compile Include="Assets\GameElements\GameObjectLoader.cs" />
     <Compile Include="Assets\GameElements\MapFloor.cs" />
@@ -139,9 +142,12 @@
     <Compile Include="Assets\Movement\SmoothMovement\SmoothMovementForEnemy.cs" />
     <Compile Include="Assets\Movement\SmoothMovement\SmoothMovementForPlayer.cs" />
     <Compile Include="Assets\Movement\SmoothMovement\SmoothRotation.cs" />
-    <Compile Include="Assets\PlacementMethods\BasePlacementMethod.cs" />
-    <Compile Include="Assets\PlacementMethods\RandomPlacementMethod.cs" />
-    <Compile Include="Assets\PlacementMethods\RandomPlacementMethodWithConsideringPlayerDistance.cs" />
+    <Compile Include="Assets\Placement\BasePlacement.cs" />
+    <Compile Include="Assets\Placement\BonusesRandomPlacement.cs" />
+    <Compile Include="Assets\Placement\RandomPlacement.cs" />
+    <Compile Include="Assets\Placement\RandomPlacementMethodWithConsideringPlayerDistance.cs" />
+    <Compile Include="Assets\Placement\RandomPlacementOnEmptyPosition.cs" />
+    <Compile Include="Assets\Placement\SelectivePlacement.cs" />
     <Compile Include="Assets\PlayerDeath.cs" />
   </ItemGroup>
   <ItemGroup>

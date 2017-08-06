@@ -6,9 +6,9 @@ public class GameMapWithComponents : GameMap {
         : base(length, width, gameMapTemplate, concreteCubeTemplate) {
     }
 
-    public void AddElements<T>(ElementCollection<T> collection) where T : BasePlacementMethod, new() {
+    public void AddElements<T>(GameElements<T> collection) where T : BasePlacement, new() {
         var cells = collection.GetPlacements(Field);
         foreach(var cell in cells)
-            Field.GetCell(cell.IndexRow, cell.IndexColumn).PutGameObject(collection.Element);
+            Field.GetCell(cell.IndexRow, cell.IndexColumn).AddGameObject(collection.Element);
     }
 }

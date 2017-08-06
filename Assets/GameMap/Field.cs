@@ -23,13 +23,11 @@ public class Field : IEnumerable<CellOnField> {
     }
 
     public Field AddElement(Int32 indexRow, Int32 indexColumn, DynamicGameObject element) {
-        var cell = GetCell(indexRow, indexColumn);
-        if(cell.IsEmpty())
-            cell.DynamicGameObject = element;
+        GetCell(indexRow, indexColumn).AddGameObject(element);
         return this;
     }
-    public DynamicGameObject GetDynamicGameObject(Int32 indexRow, Int32 indexColumn) {
-        return GetCell(indexRow, indexColumn).DynamicGameObject;
+    public IEnumerable<DynamicGameObject> GetDynamicGameObjects(Int32 indexRow, Int32 indexColumn) {
+        return GetCell(indexRow, indexColumn).DynamicGameObjects;
     }
     public CellOnField GetCell(Int32 indexRow, Int32 indexColumn) {
         return field[indexRow, indexColumn];
@@ -45,7 +43,7 @@ public class Field : IEnumerable<CellOnField> {
         return FindAll(d => d.GetType() == elementType);
     }
     private IEnumerable<CellOnField> FindAll(Predicate<DynamicGameObject> predicate) {
-        return this.Where(cell => !cell.IsEmpty() && predicate(cell.DynamicGameObject));
+        return this.Where(cell => cell.DynamicGameObjects.Exists(dgo => predicate(dgo)));
     }
 
     public IEnumerable<CellOnField> GetEmptyCells() {
