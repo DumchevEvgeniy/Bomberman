@@ -48,5 +48,6 @@ public class BombSettings : MonoBehaviour {
             return;
         bangSettings.stoppedTags = bangController.GetStoppedTags();
         bangSettings.AddActionWithAttackedObjects(bangController.ActionWithAttackedObjects);
+        bangSettings.AddActionAfterBang(bangController.ActionAfterBang);
     }
 }

@@ -1,6 +1,33 @@
 ﻿using UnityEngine;
 
-public static class Bonuses {
+public static class GameFactory {
+    public static Bomberman CreateBomberSnowman() {
+        var bomberman = new Bomberman() {
+            PrefabName = "Snowman",
+            Wallpass = false,
+            PreDetonatePossible = false,
+            BangDistance = 1,
+            MaxCountBomb = 1,
+            MovementSpeed = 2,
+            RotationSpeed = 3,
+            StartGamePoints = 0,
+            StartNumberOfLives = 3
+        };
+        bomberman.AddScriptType(typeof(PlayerRotation));
+        bomberman.AddScriptType(typeof(PlayerMovement));
+        return bomberman;
+    }
+
+    public static Enemy CreateEasyEnemy() {
+        var enemy = new Enemy("Enemy", 100) {
+            MovementSpeed = 1,
+            RotationSpeed = 50,
+            Wallpass = false
+        };
+        //enemy.AddScriptType(typeof(EnemySmoothMovement));
+        return enemy;
+    }
+
     public static Bonus CreateBonusBombs() {
         return new Bonus("Bombs", BonusTypes.Bombs, 600) {
             RotationSpeed = 5,

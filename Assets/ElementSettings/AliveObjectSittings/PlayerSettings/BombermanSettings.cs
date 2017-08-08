@@ -3,15 +3,15 @@
 public class BombermanSettings : PlayerSettings {
     private const Int32 defaultCountBomb = 1;
     private const Int32 defaultBangDistance = 1;
-    private BomberAbility bomberAbility;
     public Int32 maxCountBomb = defaultCountBomb;
     public Int32 bangDistance = defaultBangDistance;
+    protected BomberAbility bomberAbility;
 
     protected override void OnStart() {
         base.OnStart();
         bomberAbility = GetComponent<BomberAbility>();
         if(bomberAbility == null)
-            return;
+            AddDefaultBomberAbility();
         bomberAbility.maxCountBomb = maxCountBomb;
         bomberAbility.bangDistance = bangDistance;
     }
@@ -19,6 +19,10 @@ public class BombermanSettings : PlayerSettings {
         base.OnUpdate();
         if(bomberAbility == null)
             return;
+    }
+
+    protected virtual void AddDefaultBomberAbility() {
+        bomberAbility = gameObject.AddComponent<BomberAbility>();
     }
 
     public void AddBomb() {

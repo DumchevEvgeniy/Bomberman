@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class CameraSettings : MonoBehaviour {
@@ -20,5 +21,20 @@ public class CameraSettings : MonoBehaviour {
             transform.Translate((newPosition - oldPosition), Space.World);
             oldPosition = transform.position;
         }
+    }
+
+    
+    public void NearToPlayer(Single time) {
+        StopCoroutine(Near(time));
+        if(player == null)
+            return;
+        StartCoroutine(Near(time));
+    }
+    
+    public IEnumerator Near(Single time) {
+        var oldPositionOddset = positionOffset; 
+        positionOffset = new Vector3(1, 2, 0);
+        yield return new WaitForSeconds(time);
+        positionOffset = oldPositionOddset;
     }
 }

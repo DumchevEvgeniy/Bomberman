@@ -29,6 +29,13 @@ public static class GameObjectExtensions {
         }
         return gameObject;
     }
+
+    public static GameObject GetParent(this GameObject gameObject) {
+        GameObject parentObject = gameObject;
+        while(parentObject.transform.parent != null)
+            parentObject = parentObject.transform.parent.gameObject;
+        return parentObject;
+    }
 }
 
 public static class SceneAnalizer {

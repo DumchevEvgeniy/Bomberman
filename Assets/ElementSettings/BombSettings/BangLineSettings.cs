@@ -24,7 +24,7 @@ public class BangLineSettings : MonoBehaviour {
     private void Update() {
         var currentHitObjects = bangRay.Cast();
         foreach(var hitObj in currentHitObjects) {
-            var obj = GetParentgameObject(hitObj.transform.gameObject);
+            var obj = hitObj.transform.gameObject.GetParent();
             if(hitObjects.Contains(obj))
                 continue;
             Callback(obj);
@@ -39,7 +39,7 @@ public class BangLineSettings : MonoBehaviour {
         var hitObjects = bangRay.Cast();
         if(!ExistStoppedElement(hitObjects))
             return;
-        var firstStoppedElement = GetParentgameObject(GetFirstStoppedElement(hitObjects).transform.gameObject);
+        var firstStoppedElement = GetFirstStoppedElement(hitObjects).transform.gameObject.GetParent();
         var distanceBetweenTwoObjects = firstStoppedElement.transform.position - startPosition;
         distance = GetNotZeroCoordinate(distanceBetweenTwoObjects);
         bangRay.Distance = distance - 1;
@@ -57,17 +57,12 @@ public class BangLineSettings : MonoBehaviour {
         foreach(var action in actionWithAttackedObjects.GetInvocationList())
             ((Action<GameObject>)action)(gameObject);
     }
-    private GameObject GetParentgameObject(GameObject gameObject) {
-        GameObject parentObject = gameObject;
-        while(parentObject.transform.parent != null)
-            parentObject = parentObject.transform.parent.gameObject;
-        return parentObject;
-    }
+    
 
-    private RaycastHit GetFirstStoppedElement(RaycastHit[] hitElements) {
+    private RaycastHit GetFirstStoppedElement(IEnumerable<RaycastHit> hitElements) {
         return hitElements.FirstOrDefault(ContainsInStoppedTags);
     }
-    private Boolean ExistStoppedElement(RaycastHit[] hitElements) {
+    private Boolean ExistStoppedElement(IEnumerable<RaycastHit> hitElements) {
         return hitElements.ToList().Exists(ContainsInStoppedTags);
     }
     private Boolean ContainsInStoppedTags(RaycastHit hit) {

@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
 
 public class BangRay {
     private readonly Vector3 direction;
@@ -14,8 +16,9 @@ public class BangRay {
         plane = GetPlane(direction);
     }
 
-    public RaycastHit[] Cast() {
-        return Physics.BoxCastAll(startPosition, plane, direction, Quaternion.Euler(0, 0, 0), Distance);
+    public IEnumerable<RaycastHit> Cast() {
+        return Physics.BoxCastAll(startPosition, plane, direction, Quaternion.Euler(0, 0, 0), Distance)
+            .OrderBy(el => el.distance);
     }
 
     private Vector3 GetPlane(Vector3 direction) {

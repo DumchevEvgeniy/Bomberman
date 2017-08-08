@@ -26,8 +26,10 @@ public class EnemySmoothMovement : BaseMovementAbility {
         if(smoothMovement.Started || smoothRotation.Started)
             return;
         if(CanMove()) {
+            smoothMovement.Speed = movementSpeed;
             StartCoroutine(smoothMovement.MakeItSmooth());
             if(!smoothMovement.Started) {
+                smoothRotation.Speed = rotationSpeed;
                 smoothRotation.Distance = GetAngle();
                 StartCoroutine(smoothRotation.MakeItSmooth());
             }
@@ -38,6 +40,7 @@ public class EnemySmoothMovement : BaseMovementAbility {
 
     private void StartSmoothRotating() {
         smoothRotation.Distance = GetAngle();
+        smoothRotation.Speed = rotationSpeed;
         StartCoroutine(smoothRotation.MakeItSmooth());
     }
 

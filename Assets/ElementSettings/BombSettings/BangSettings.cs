@@ -7,6 +7,7 @@ public class BangSettings : MonoBehaviour {
     public Int32 distance = 1;
     public Single lifeTime = 1.0f;
     public List<String> stoppedTags = new List<String>();
+    private Action actionAfterBang = null;
 
     private void Start() {
         ForEachBangLine(b => {
@@ -18,9 +19,16 @@ public class BangSettings : MonoBehaviour {
         StartCoroutine(StopBang());
     }
 
+    public void AddActionAfterBang(Action action) {
+        actionAfterBang += action;
+    }
+
     private IEnumerator StopBang() {        
         yield return new WaitForSeconds(lifeTime);
         Destroy(this.gameObject);
+        if(actionAfterBang != null)
+            foreach(var action in actionAfterBang.GetInvocationList())
+                ((Action)action)();
     }
 
     public void AddActionWithAttackedObjects(Action<GameObject> action) {

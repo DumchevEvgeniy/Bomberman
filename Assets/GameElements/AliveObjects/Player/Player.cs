@@ -2,27 +2,18 @@
 using UnityEngine;
 
 public class Player : MovementObject {
-    //private readonly Int32 startGamePoints = 0;
-    //private readonly Int32 startNumberOfLives = 3;
     public const String tag = "Player";
-
-    public Player(Single movementSpeed, Single rotationSpeed, Boolean wallpass = false) 
-        : base(movementSpeed, rotationSpeed, wallpass) {
-    }
-
-    public override GameObject CreateGameObject() {
-        var player = base.CreateGameObject();
-        //var playerSettings = player.AddComponent<PlayerSettings>();
-        //playerSettings.InitializeMovingSettings(MovementSpeed, RotationSpeed, Wallpass);
-        //playerSettings.Initialize(startNumberOfLives, startGamePoints);
-        return player;
-    }
-
-    public PlayerSettings GetSetting(GameObject gameObject) {
-        return gameObject.GetComponent<PlayerSettings>();
+    public String PrefabName { get; set; }
+    public Int32 StartGamePoints { get; set; }
+    public Int32 StartNumberOfLives { get; set; }
+    
+    public override void InitializeSettings(GameObject currentObject) {
+        var playerSettings = currentObject.AddComponent<PlayerSettings>();
+        playerSettings.InitializeMovingSettings(MovementSpeed, RotationSpeed, Wallpass);
+        playerSettings.Initialize(StartNumberOfLives, StartGamePoints);
     }
 
     protected override String GetPrefabName() {
-        return "Prefabs/Snowman";
+        return "Prefabs/" + PrefabName;
     }
 }

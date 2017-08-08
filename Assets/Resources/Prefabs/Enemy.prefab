@@ -58,8 +58,7 @@ GameObject:
   - component: {fileID: 33225739680483912}
   - component: {fileID: 23639466189454472}
   - component: {fileID: 136696672767956080}
-  - component: {fileID: 114671326907332016}
-  - component: {fileID: 114531062348022294}
+  - component: {fileID: 114580897123876530}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -545,7 +544,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114531062348022294
+--- !u!114 &114580897123876530
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -556,27 +555,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c3ea41f387efe4585dee546243edc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementObjectSettings: {fileID: 0}
+  movementSpeed: 1
+  rotationSpeed: 50
   wallpass: 0
   rangeLook: 1
   movementDistance: 1
-  rotationSpeed: 50
---- !u!114 &114671326907332016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1123182150660142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25dc9b6b58e05c74983b9957e360bb13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 1
-  rotationSpeed: 2
-  wallpass: 0
-  nickname: Enemy
-  points: 100
 --- !u!135 &135472759268836012
 SphereCollider:
   m_ObjectHideFlags: 1
