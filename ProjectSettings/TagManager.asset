@@ -9,6 +9,7 @@ TagManager:
   - PlayerComponenet
   - Bomb
   - Bonus
+  - ConcreteCube
   layers:
   - Default
   - TransparentFX

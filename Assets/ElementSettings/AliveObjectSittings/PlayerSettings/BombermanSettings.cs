@@ -2,10 +2,10 @@
 
 public class BombermanSettings : PlayerSettings {
     private const Int32 defaultCountBomb = 1;
-    private const Single defaultRadius = 1.0f;
+    private const Int32 defaultBangDistance = 1;
     private BomberAbility bomberAbility;
     public Int32 maxCountBomb = defaultCountBomb;
-    public Single radius = defaultRadius;
+    public Int32 bangDistance = defaultBangDistance;
 
     protected override void OnStart() {
         base.OnStart();
@@ -13,7 +13,7 @@ public class BombermanSettings : PlayerSettings {
         if(bomberAbility == null)
             return;
         bomberAbility.maxCountBomb = maxCountBomb;
-        bomberAbility.radius = radius;
+        bomberAbility.bangDistance = bangDistance;
     }
     protected override void OnUpdate() {
         base.OnUpdate();
@@ -25,16 +25,16 @@ public class BombermanSettings : PlayerSettings {
         maxCountBomb++;
         bomberAbility.maxCountBomb = maxCountBomb;
     }
-    public void AddRadius() {
-        radius++;
-        bomberAbility.radius = radius;
+    public void AddBangDistance() {
+        bangDistance++;
+        bomberAbility.bangDistance = bangDistance;
     }
     public void ResetBombCount() {
         maxCountBomb = defaultCountBomb;
         bomberAbility.maxCountBomb = defaultCountBomb;
     }
-    public void ResetRadius() {
-        radius = defaultRadius;
-        bomberAbility.radius = defaultRadius;
+    public void ResetBangDistance() {
+        bangDistance = defaultBangDistance;
+        bomberAbility.bangDistance = defaultBangDistance;
     }
 }

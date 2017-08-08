@@ -18,7 +18,7 @@ public class PlayerDeath : MonoBehaviour {
     public void OnTriggerEnter(Collider other) {
         if(playerSetting == null || !playerSetting.IsAlive())
             return;
-        if(other.gameObject.tag == Enemy.Tag && !smoothRotation.Started) {
+        if(other.gameObject.tag == Enemy.tag && !smoothRotation.Started) {
             smoothRotation.Direction = -other.transform.forward;
             StartCoroutine(smoothRotation.MakeItSmooth());
         }

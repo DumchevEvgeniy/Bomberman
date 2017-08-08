@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545874674778562}
   - component: {fileID: 111354262288341056}
+  - component: {fileID: 135227134250329814}
   m_Layer: 0
   m_Name: Detonator
   m_TagString: Bonus
@@ -125,3 +126,15 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!135 &135227134250329814
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551277208022654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9
+  m_Center: {x: 0, y: 0, z: 0}

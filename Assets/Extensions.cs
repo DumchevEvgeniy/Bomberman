@@ -33,20 +33,14 @@ public static class GameObjectExtensions {
 
 public static class SceneAnalizer {
     public static GameObject FindPlayer(this Scene scene) {
-        return GetAllElementsByTag(scene, Player.Tag).FirstOrDefault();
+        return GetAllElementsByTag(scene, Player.tag).FirstOrDefault();
     }
 
     public static IEnumerable<GameObject> FindAllBreakCube(this Scene scene) {
-        return GetAllElementsByTag(scene, BreakCube.Tag);
+        return GetAllElementsByTag(scene, BreakCube.tag);
     } 
 
     public static IEnumerable<GameObject> GetAllElementsByTag(this Scene scene, String tag) {
         return scene.GetRootGameObjects().Where(g => g.CompareTag(tag));
     }
-}
-
-public enum Coordinate {
-    X,
-    Y,
-    Z
 }

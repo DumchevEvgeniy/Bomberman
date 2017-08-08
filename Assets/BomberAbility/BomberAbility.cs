@@ -5,15 +5,14 @@ public class BomberAbility : MonoBehaviour  {
     public Int32 maxCountBomb = 1;
     protected Int32 bombCounter = 0;
     private Boolean existObstacle = false;
-
-    public Single radius = 1;
+    public Int32 bangDistance = 1;
 
     private void Update() {
         OnUpdate();
     }
 
     protected virtual void OnUpdate() {
-        if(!Input.GetKey(KeyCode.Space))
+        if(!Input.GetKeyDown(KeyCode.Space))
             return;
         if(!BombsAreAvailable() || existObstacle)
             return;
@@ -42,8 +41,9 @@ public class BomberAbility : MonoBehaviour  {
         var cellForBomb = new Cell(indexRow, indexColumn);
         var bomb = new Bomb(cellForBomb).CreateGameObject();
         var bombSettings = bomb.GetComponent<BombSettings>();
-        bombSettings.radius = radius;
+        bombSettings.distance = bangDistance;
         bombSettings.AddActionAfterDeath(DetonateBomb);
+        bombSettings.bangController = new BangController();
         return bomb;
     }
 
@@ -51,6 +51,6 @@ public class BomberAbility : MonoBehaviour  {
         return maxCountBomb > 0 && bombCounter < maxCountBomb;
     }
     private Boolean IsBreakCubeOrBomb(Collider other) {
-        return other.CompareTag(BreakCube.Tag) || other.CompareTag(Bomb.Tag);
+        return other.CompareTag(BreakCube.tag) || other.CompareTag(Bomb.Tag);
     }
 }

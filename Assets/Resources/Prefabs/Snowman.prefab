@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCountBomb: 1
-  radius: 1
+  bangDistance: 1
   enable: 1
 --- !u!114 &114674864888061190
 MonoBehaviour:
@@ -1061,12 +1061,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2
   rotationSpeed: 3
-  wallpass: 1
+  wallpass: 0
   numberOfLives: 3
   gamePoints: 0
-  maxCountBomb: 4
-  radius: 1
-  preDetonatePossible: 1
+  maxCountBomb: 1
+  bangDistance: 1
+  preDetonatePossible: 0
 --- !u!135 &135083426613266798
 SphereCollider:
   m_ObjectHideFlags: 1

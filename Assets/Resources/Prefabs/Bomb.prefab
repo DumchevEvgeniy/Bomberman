@@ -247,8 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1299bccf6aeb9146b2edbcde20d89b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
-  timeOfDeath: 40
+  distance: 1
+  timeOfDeath: 2
+  bangLifeTime: 1
 --- !u!135 &135959478671185924
 SphereCollider:
   m_ObjectHideFlags: 1
