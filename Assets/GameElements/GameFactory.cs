@@ -24,7 +24,7 @@ public static class GameFactory {
             RotationSpeed = 50,
             Wallpass = false
         };
-        //enemy.AddScriptType(typeof(EnemySmoothMovement));
+        enemy.AddScriptType(typeof(EnemySmoothMovement));
         return enemy;
     }
 

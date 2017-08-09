@@ -8,7 +8,7 @@ public class BreakCube : DynamicGameObject {
         return "Prefabs/BreakCube";
     }
 
-    public override GameObject CreateGameObject() {
+    protected override GameObject CreateGameObject() {
         var sandCube = base.CreateGameObject();
         sandCube.AddComponent<BreakCubeSettings>();
         return sandCube;

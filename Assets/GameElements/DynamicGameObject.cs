@@ -15,11 +15,15 @@ public abstract class DynamicGameObject {
         typesForAddedScripts.Add(scriptType);
     }
 
-    public virtual GameObject CreateGameObject() {
-        var gameObject = GameObject.Instantiate<GameObject>(ToGameObject());
+    public GameObject Create() {
+        var gameObject = CreateGameObject();
         foreach(var script in typesForAddedScripts)
             gameObject.AddComponent(script);
         return gameObject;
+    }
+
+    protected virtual GameObject CreateGameObject() {
+        return GameObject.Instantiate<GameObject>(ToGameObject());
     }
 
     public Boolean IsDerived(System.Object obj) {

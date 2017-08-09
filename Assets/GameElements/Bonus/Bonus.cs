@@ -15,7 +15,7 @@ public class Bonus : DynamicGameObject {
         this.bonusType = bonusType;
     }
 
-    public override GameObject CreateGameObject() {
+    protected override GameObject CreateGameObject() {
         var bonus = base.CreateGameObject();
         var bonusInAction = bonus.AddComponent<BonusInAction>();
         bonusInAction.bonusTypes = bonusType;

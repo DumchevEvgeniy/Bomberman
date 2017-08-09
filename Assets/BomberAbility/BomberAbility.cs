@@ -39,7 +39,7 @@ public class BomberAbility : MonoBehaviour  {
         var indexRow = (Int32)Math.Round(gameObject.transform.position.x);
         var indexColumn = (Int32)Math.Round(gameObject.transform.position.z);
         var cellForBomb = new Cell(indexRow, indexColumn);
-        var bomb = new Bomb(cellForBomb).CreateGameObject();
+        var bomb = new Bomb(cellForBomb).Create();
         var bombSettings = bomb.GetComponent<BombSettings>();
         bombSettings.distance = bangDistance;
         bombSettings.AddActionAfterDeath(DetonateBomb);

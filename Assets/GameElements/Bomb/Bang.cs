@@ -8,7 +8,7 @@ public class Bang : DynamicGameObject {
         cell = new Cell(row, column);
     }
 
-    public override GameObject CreateGameObject() {
+    protected override GameObject CreateGameObject() {
         var bang = base.CreateGameObject();
         bang.transform.position = new Vector3(cell.IndexRow, 1, cell.IndexColumn);
         return bang;

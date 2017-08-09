@@ -6,7 +6,7 @@ public abstract class MovementObject : DynamicGameObject {
     public Single MovementSpeed { get; set; }
     public Boolean Wallpass { get; set; }
 
-    public override GameObject CreateGameObject() {
+    protected override GameObject CreateGameObject() {
         var movementObject =  base.CreateGameObject();
         InitializeSettings(movementObject);
         return movementObject;

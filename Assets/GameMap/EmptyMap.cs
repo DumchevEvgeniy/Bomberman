@@ -10,7 +10,7 @@ public class EmptyMap : BaseMap {
     }
 
     private void InitializeMap(DynamicGameObject gameMapTemplate) {
-        gameMap = gameMapTemplate.CreateGameObject();
+        gameMap = gameMapTemplate.Create();
         Single offsetByX = (Int32)(Width / 2.0);
         Single offsetByZ = (Int32)(Length / 2.0);
         gameMap.transform.position = new Vector3(offsetByX, 0, offsetByZ);
@@ -21,7 +21,7 @@ public class EmptyMap : BaseMap {
     public void CreateAll() {
         foreach(var cell in Field) {
             foreach(var dynamicGameObject in cell.DynamicGameObjects) {
-                var element = dynamicGameObject.CreateGameObject();
+                var element = dynamicGameObject.Create();
                 element.transform.position = new Vector3(cell.IndexRow, element.transform.position.y, cell.IndexColumn);
             }
         }

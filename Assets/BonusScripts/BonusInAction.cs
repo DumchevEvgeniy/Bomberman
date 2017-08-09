@@ -67,7 +67,7 @@ public class BonusInAction : MonoBehaviour {
         if(movementSettings == null)
             return;
         movementSettings.movementSpeed++;
-        var text = new DynamicGameObjectCreator("Prefabs/SpeedText").CreateGameObject();
+        var text = new DynamicGameObjectCreator("Prefabs/SpeedText").Create();
         text.transform.position = gameObject.transform.position;
     }
     private void ActionBonusWallpass(GameObject gameObject) {

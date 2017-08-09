@@ -40,7 +40,7 @@ public class BombSettings : MonoBehaviour {
 
     private void MakeABang() {
         var bang = new Bang((Int32)Math.Round(transform.position.x), (Int32)Math.Round(transform.position.z))
-            .CreateGameObject();
+            .Create();
         var bangSettings = bang.GetComponent<BangSettings>();
         bangSettings.distance = distance;
         bangSettings.lifeTime = bangLifeTime;

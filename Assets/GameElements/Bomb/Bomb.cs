@@ -13,7 +13,7 @@ public class Bomb : DynamicGameObject {
         return "Prefabs/Bomb";
     }
 
-    public override GameObject CreateGameObject() {
+    protected override GameObject CreateGameObject() {
         var bomb = base.CreateGameObject();
         bomb.transform.position = new Vector3(cellForBomb.IndexRow, bomb.transform.position.y, cellForBomb.IndexColumn);
         return bomb;

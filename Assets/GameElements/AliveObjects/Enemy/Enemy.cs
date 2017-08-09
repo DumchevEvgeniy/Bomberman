@@ -11,7 +11,7 @@ public class Enemy : MovementObject {
         Points = points;
     }
 
-    public override GameObject CreateGameObject() {
+    protected override GameObject CreateGameObject() {
         var enemy =  base.CreateGameObject();
         var enemySettings = enemy.AddComponent<EnemySettings>();
         enemySettings.InitializeMovingSettings(MovementSpeed, RotationSpeed, Wallpass);
