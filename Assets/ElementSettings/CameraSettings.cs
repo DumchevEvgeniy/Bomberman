@@ -23,15 +23,12 @@ public class CameraSettings : MonoBehaviour {
         }
     }
 
-    
     public void NearToPlayer(Single time) {
-        StopCoroutine(Near(time));
         if(player == null)
             return;
         StartCoroutine(Near(time));
     }
-    
-    public IEnumerator Near(Single time) {
+    private IEnumerator Near(Single time) {
         var oldPositionOddset = positionOffset; 
         positionOffset = new Vector3(1, 2, 0);
         yield return new WaitForSeconds(time);

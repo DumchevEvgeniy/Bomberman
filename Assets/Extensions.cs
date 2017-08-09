@@ -36,6 +36,12 @@ public static class GameObjectExtensions {
             parentObject = parentObject.transform.parent.gameObject;
         return parentObject;
     }
+
+    public static Boolean OneFrom(this GameObject gameObject, params String[] tags) {
+        if(tags == null || tags.Length == 0)
+            return false;
+        return tags.Any(tag => gameObject.CompareTag(tag));
+    }
 }
 
 public static class SceneAnalizer {

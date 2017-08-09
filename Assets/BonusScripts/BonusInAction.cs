@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ public class BonusInAction : MonoBehaviour {
     public BonusTypes bonusTypes;
 
     private void OnTriggerEnter(Collider other) {
-        if(!other.gameObject.CompareTag(Player.tag))
+        if(!other.gameObject.CompareTag(Player.tag) || ExistBarrier())
             return;
         switch(bonusTypes) {
             case BonusTypes.Bombs:
@@ -27,6 +26,19 @@ public class BonusInAction : MonoBehaviour {
                 break;
         }
         Destroy(this.gameObject);
+    }
+
+    private Boolean ExistBarrier() {
+        var bonusPosition = gameObject.transform.position;
+        var centerPosition = new Vector3(bonusPosition.x, 1, bonusPosition.z);
+        var position = centerPosition - new Vector3(0, 0, 0.45f);
+        var hitObjects = new PlaneRay(position, Vector3.forward) { Distance = 0.9f }.Cast();
+        foreach(var hitElement in hitObjects) {
+            var hitObject = hitElement.transform.gameObject.GetParent();
+            if(!hitObject.OneFrom(Player.tag, Bonus.tag))
+                return true;
+        }
+        return false;
     }
 
     private void ActionBonusBombs(GameObject gameObject) {

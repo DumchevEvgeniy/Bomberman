@@ -40,7 +40,7 @@ public class Field : IEnumerable<CellOnField> {
         return FindAll(d => d.Equals(element));
     }
     public IEnumerable<CellOnField> FindAll(Type elementType) {
-        return FindAll(d => d.GetType() == elementType);
+        return FindAll(d => d.IsDerived(elementType));
     }
     private IEnumerable<CellOnField> FindAll(Predicate<DynamicGameObject> predicate) {
         return this.Where(cell => cell.DynamicGameObjects.Exists(dgo => predicate(dgo)));

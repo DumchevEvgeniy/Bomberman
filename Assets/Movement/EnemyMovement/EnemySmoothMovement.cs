@@ -69,7 +69,7 @@ public class EnemySmoothMovement : BaseMovementAbility {
         if(!Physics.Raycast(ray, out hit))
             return false;
         var hitObject = hit.transform.gameObject;
-        if(hitObject.CompareTag(Enemy.tag) || hitObject.CompareTag(Player.tag))
+        if(hitObject.OneFrom(Enemy.tag, Player.tag))
             return true;
         if(wallpass && hitObject.CompareTag(BreakCube.tag))
             return true;

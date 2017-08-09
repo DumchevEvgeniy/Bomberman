@@ -12,11 +12,7 @@ public class BangController : BaseBangController {
     }
 
     public override void ActionWithAttackedObjects(GameObject gameObject) {
-        if(gameObject.CompareTag(Enemy.tag))
-            GameObject.Destroy(gameObject);
-        if(gameObject.CompareTag(Player.tag))
-            GameObject.Destroy(gameObject);
-        if(gameObject.CompareTag(BreakCube.tag))
+        if(gameObject.OneFrom(Enemy.tag, Player.tag, BreakCube.tag))
             GameObject.Destroy(gameObject);
         if(gameObject.CompareTag(Bonus.tag))
             KillBonus(gameObject);
@@ -30,9 +26,7 @@ public class BangController : BaseBangController {
 
     private void BonusPenalty(Vector3 position) {
         Int32 enemyPenaltyCount = 10;
-        for(Int32 i = 0; i < enemyPenaltyCount; i++) {
-            var enemy = GameFactory.CreateEasyEnemy().CreateGameObject();
-            enemy.transform.position = position;
-        }
+        for(Int32 i = 0; i < enemyPenaltyCount; i++)
+            GameFactory.CreateEasyEnemy().CreateGameObject().transform.position = position;
     }
 }

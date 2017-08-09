@@ -11,11 +11,11 @@ public class BangLineSettings : MonoBehaviour {
     public List<String> stoppedTags = new List<String>();
     private Action<GameObject> actionWithAttackedObjects = null;
     private ParticleSystem bang;
-    private BangRay bangRay;
+    private PlaneRay bangRay;
     private List<GameObject> hitObjects = new List<GameObject>();
     
     private void Start() {
-        bangRay = new BangRay(startPosition, direction) { Distance = distance };
+        bangRay = new PlaneRay(startPosition, direction) { Distance = distance };
         InitializeDistance();
         bang = GetComponent<ParticleSystem>();
         UpdateBangSettings();
@@ -58,7 +58,6 @@ public class BangLineSettings : MonoBehaviour {
             ((Action<GameObject>)action)(gameObject);
     }
     
-
     private RaycastHit GetFirstStoppedElement(IEnumerable<RaycastHit> hitElements) {
         return hitElements.FirstOrDefault(ContainsInStoppedTags);
     }
@@ -66,7 +65,7 @@ public class BangLineSettings : MonoBehaviour {
         return hitElements.ToList().Exists(ContainsInStoppedTags);
     }
     private Boolean ContainsInStoppedTags(RaycastHit hit) {
-        return stoppedTags.Contains(hit.transform.gameObject.tag);
+        return hit.transform.gameObject.OneFrom(stoppedTags.ToArray());
     }
 
     private Int32 GetNotZeroCoordinate(Vector3 distance) {

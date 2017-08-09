@@ -51,6 +51,6 @@ public class BomberAbility : MonoBehaviour  {
         return maxCountBomb > 0 && bombCounter < maxCountBomb;
     }
     private Boolean IsBreakCubeOrBomb(Collider other) {
-        return other.CompareTag(BreakCube.tag) || other.CompareTag(Bomb.Tag);
+        return other.gameObject.GetParent().OneFrom(BreakCube.tag, Bomb.tag);
     }
 }
