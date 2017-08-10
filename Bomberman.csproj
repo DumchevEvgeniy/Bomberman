@@ -109,6 +109,7 @@
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\PlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\WallpassPlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangLineSettings.cs" />
+    <Compile Include="Assets\GameMap\SmartMap.cs" />
     <Compile Include="Assets\Game\PlaneRay.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BombSettings.cs" />

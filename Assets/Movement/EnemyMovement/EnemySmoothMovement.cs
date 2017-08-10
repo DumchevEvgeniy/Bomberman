@@ -6,6 +6,7 @@ public class EnemySmoothMovement : BaseMovementAbility {
     public Single movementDistance = 1f;
     private SmoothMovementForEnemy smoothMovement;
     private SmoothRotation smoothRotation;
+    private static System.Random random = new System.Random();
 
     protected override void OnStart() {
         base.OnStart();
@@ -60,7 +61,7 @@ public class EnemySmoothMovement : BaseMovementAbility {
     }
 
     private Single GetAngle() {
-        return new System.Random().Next(-1, 2) * 90;
+        return random.Next(-1, 2) * 90;
     }
 
     private Boolean CanMove() {

@@ -80,6 +80,6 @@ public class BangLineSettings : MonoBehaviour {
     }
 
     private Single RealDistance {
-        get { return distance + 0.49f; }
+        get { return distance + 0.45f; }
     }
 }

@@ -28,6 +28,10 @@ public static class GameFactory {
         return enemy;
     }
 
+    public static Enemy CreateHardEnemy(SmartMap field) {
+        return null;
+    }
+
     public static Bonus CreateBonusBombs() {
         return new Bonus("Bombs", BonusTypes.Bombs, 600) {
             RotationSpeed = 5,

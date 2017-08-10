@@ -1,6 +1,6 @@
 ﻿using System;
 
-class MapSize {
+public class MapSize {
     private const Int32 minSize = 5;
 
 	public static void AdjustmentSize(ref Int32 length, ref Int32 width) {
