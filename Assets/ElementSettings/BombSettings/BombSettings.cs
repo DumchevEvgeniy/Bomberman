@@ -35,6 +35,12 @@ public class BombSettings : MonoBehaviour {
 
     private void OnTriggerExit(Collider other) {
         if(other is CharacterController)
+            StartCoroutine(EnableBoxColliderWithDelay(0.3f));
+    }
+
+    private IEnumerator EnableBoxColliderWithDelay(Single delay) {
+        yield return new WaitForSeconds(delay);
+        if(gameObject != null)
             boxCollider.isTrigger = false;
     }
 

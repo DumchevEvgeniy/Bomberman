@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class PlaneRay {
     private readonly Vector3 direction;
-    private readonly Single halfLengthBox = 0.45f;
+    private readonly Single halfLengthBox = 0.49f;
     private readonly Vector3 plane;
     private readonly Vector3 startPosition;
     public Single Distance { get; set; }

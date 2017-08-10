@@ -15,7 +15,7 @@ public class BangLineSettings : MonoBehaviour {
     private List<GameObject> hitObjects = new List<GameObject>();
     
     private void Start() {
-        bangRay = new PlaneRay(startPosition, direction) { Distance = distance };
+        bangRay = new PlaneRay(startPosition, direction) { Distance = RealDistance };
         InitializeDistance();
         bang = GetComponent<ParticleSystem>();
         UpdateBangSettings();
@@ -42,7 +42,7 @@ public class BangLineSettings : MonoBehaviour {
         var firstStoppedElement = GetFirstStoppedElement(hitObjects).transform.gameObject.GetParent();
         var distanceBetweenTwoObjects = firstStoppedElement.transform.position - startPosition;
         distance = GetNotZeroCoordinate(distanceBetweenTwoObjects);
-        bangRay.Distance = distance - 1;
+        bangRay.Distance = RealDistance - 1;
         Callback(firstStoppedElement);
     }
     private void UpdateBangSettings() {
@@ -77,5 +77,9 @@ public class BangLineSettings : MonoBehaviour {
     }
     private Int32 ToRoundInt32(Single value) {
         return Math.Abs((Int32)Math.Round(value));
+    }
+
+    private Single RealDistance {
+        get { return distance + 0.49f; }
     }
 }
