@@ -24,12 +24,18 @@ public static class GameFactory {
             RotationSpeed = 50,
             Wallpass = false
         };
-        enemy.AddScriptType(typeof(EnemySmoothMovement));
+        enemy.AddScriptType(typeof(EnemyWithSmoothMovement));
         return enemy;
     }
 
-    public static Enemy CreateHardEnemy(SmartMap field) {
-        return null;
+    public static Enemy CreateSmartEnemy(SmartMap map) {
+        var enemy = new SmartEnemy("Enemy", 100, map) {
+            MovementSpeed = 1,
+            RotationSpeed = 50,
+            Wallpass = false
+        };
+        enemy.AddScriptType(typeof(EnemyWithSmartMovement));
+        return enemy;
     }
 
     public static Bonus CreateBonusBombs() {

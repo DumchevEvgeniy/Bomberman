@@ -11,15 +11,13 @@ public class Enemy : MovementObject {
         Points = points;
     }
 
-    protected override GameObject CreateGameObject() {
-        var enemy =  base.CreateGameObject();
-        var enemySettings = enemy.AddComponent<EnemySettings>();
+    public override void InitializeSettings(GameObject currentObject) {
+        var enemySettings = currentObject.AddComponent<EnemySettings>();
         enemySettings.InitializeMovingSettings(MovementSpeed, RotationSpeed, Wallpass);
         enemySettings.Initialize(Nickname, Points);
-        return enemy;
     }
 
     protected override String GetPrefabName() {
-        return "Prefabs/" + Nickname;
+        return "Prefabs/Enemies/" + Nickname;
     }
 }

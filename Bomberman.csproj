@@ -103,13 +103,15 @@
     <Compile Include="Assets\ComponentCopy.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\AliveObjectSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\EnemySettings.cs" />
+    <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\SmartEnemySettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\MovementObjectSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\BombermanSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\CunningBombermanSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\PlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\WallpassPlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangLineSettings.cs" />
-    <Compile Include="Assets\GameMap\SmartMap.cs" />
+    <Compile Include="Assets\GameElements\AliveObjects\Enemy\SmartEnemy.cs" />
+    <Compile Include="Assets\GameMap\Map\SmartMap.cs" />
     <Compile Include="Assets\Game\PlaneRay.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BombSettings.cs" />
@@ -136,16 +138,29 @@
     <Compile Include="Assets\GameElements\ModelsOnMap\ConcreteCube.cs" />
     <Compile Include="Assets\GameElements\ModelsOnMap\MapFloor.cs" />
     <Compile Include="Assets\GameEnums.cs" />
-    <Compile Include="Assets\GameMap\BaseMap.cs" />
-    <Compile Include="Assets\GameMap\Cell.cs" />
-    <Compile Include="Assets\GameMap\CellOnField.cs" />
-    <Compile Include="Assets\GameMap\EmptyMap.cs" />
-    <Compile Include="Assets\GameMap\Field.cs" />
-    <Compile Include="Assets\GameMap\GameMap.cs" />
-    <Compile Include="Assets\GameMap\GameMapWithComponents.cs" />
+    <Compile Include="Assets\GameMap\Map\BaseMap.cs" />
+    <Compile Include="Assets\GameMap\Cell\Cell.cs" />
+    <Compile Include="Assets\GameMap\Cell\CellOnField.cs" />
+    <Compile Include="Assets\GameMap\Map\EmptyMap.cs" />
+    <Compile Include="Assets\GameMap\Map\Field.cs" />
+    <Compile Include="Assets\GameMap\Map\GameMap.cs" />
+    <Compile Include="Assets\GameMap\Map\GameMapWithComponents.cs" />
     <Compile Include="Assets\GameMap\MapSize.cs" />
+    <Compile Include="Assets\MapToGraph\CellWithDirection.cs" />
+    <Compile Include="Assets\MapToGraph\Graph.cs" />
+    <Compile Include="Assets\GameMap\Cell\DirectiveNode.cs" />
+    <Compile Include="Assets\GameMap\Cell\PonderableNode.cs" />
+    <Compile Include="Assets\GameMap\Cell\RelatedNode.cs" />
+    <Compile Include="Assets\MapToGraph\RouteSeacher\IRoute.cs" />
+    <Compile Include="Assets\MapToGraph\RouteSeacher\IRouteAvailable.cs" />
+    <Compile Include="Assets\MapToGraph\RouteSeacher\RouteFromCellOnField.cs" />
+    <Compile Include="Assets\MapToGraph\RouteSeacher\RouteSeacher.cs" />
+    <Compile Include="Assets\MapToGraph\Route\Route.cs" />
+    <Compile Include="Assets\MapToGraph\Route\RouteWithBarrier.cs" />
     <Compile Include="Assets\Movement\BaseMovementAbility.cs" />
-    <Compile Include="Assets\Movement\EnemyMovement\EnemySmoothMovement.cs" />
+    <Compile Include="Assets\Movement\EnemyMovement\EnemyWithSmartMovement.cs" />
+    <Compile Include="Assets\Movement\EnemyMovement\EnemyWithSmoothMovement.cs" />
+    <Compile Include="Assets\Movement\EnemyMovement\EnemyWithSmoothMovementBase.cs" />
     <Compile Include="Assets\Movement\PlayerMovement\BasePlayerMovement.cs" />
     <Compile Include="Assets\Movement\PlayerMovement\PlayerMovement.cs" />
     <Compile Include="Assets\Movement\PlayerMovement\PlayerRotation.cs" />
@@ -163,6 +178,7 @@
     <Compile Include="Assets\PlayerDeath.cs" />
     <Compile Include="Assets\TextSettings.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
