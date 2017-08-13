@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
-    protected Graph graph;
+    protected ShortestMovementProvider provider;
 
     protected override void OnStart() {
         base.OnStart();
@@ -14,8 +14,10 @@ public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
     protected override Boolean CanMove() {
         var enemyPosition = gameObject.GetIntegerPosition().ToCell();
         var playerPositon = gameObject.scene.FindPlayer().GetIntegerPosition().ToCell();
-        graph.BuildARoute(enemyPosition, playerPositon);
-        if(graph.ExistPath) {
+        //provider = new ShortestMovementProvider(gameObject.transform.forward, enemyPosition, playerPositon);
+        //карты не хватает
+        provider.BuildARoute();
+        if(provider.ExistRoute) {
             return true; // если уже повернут туда
             // в противном случае вызовется GetRotationAngle - там определить нужный угол поворота
         }
@@ -28,6 +30,6 @@ public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
     }
 
     protected override Boolean NeededRotateAfterMoving(GameObject gameObject) {
-        return graph.ExistPath ? false : base.NeededRotateAfterMoving(gameObject);
+        return provider.ExistRoute ? false : base.NeededRotateAfterMoving(gameObject);
     }
 }

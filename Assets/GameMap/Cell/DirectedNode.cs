@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-public class DirectiveNode : CellOnField {
+public class DirectedNode : CellOnField {
     public Vector3 Direction { get; set; }
 
-    public DirectiveNode(Int32 indexRow, Int32 indexColumn, Field owner)
+    public DirectedNode(Int32 indexRow, Int32 indexColumn, Field owner)
         : base(indexRow, indexColumn, owner) {
         Direction = Vector3.zero;
     }
-    public DirectiveNode(CellOnField cellOnField)
+    public DirectedNode(CellOnField cellOnField)
         : this(cellOnField.IndexRow, cellOnField.IndexColumn, cellOnField.Owner) { }
 
     public Vector3 GetRelativeDirection(Cell destination) {

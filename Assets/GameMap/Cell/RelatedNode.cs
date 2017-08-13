@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class RelatedNode : DirectiveNode {
+public class RelatedNode : DirectedNode {
     public Cell PreviousNode { get; set; }
 
     public RelatedNode(Int32 indexRow, Int32 indexColumn, Field owner)
