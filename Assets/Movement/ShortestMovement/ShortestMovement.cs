@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 public class ShortestMovement {
     protected PonderableNode<Int32> source;
@@ -33,19 +32,28 @@ public class ShortestMovement {
     }
 
     private void FindPossibleRoutes(PonderableNode<Int32> sourceNode) {
-        foreach(var optimalCell in routeSeacher.GetOptimalRoutes(sourceNode)) {
-            if(collection.WasVisited(optimalCell))
-                continue;
-            if(new Route(sourceNode, optimalCell).Exist(destination)) {
-                collection.Add(CreatePonderableNode(destination, sourceNode));
-                continue;
-            }
+        if(TryReachDestination(routeSeacher.GetAdditionalRoutes(sourceNode), sourceNode))
+            return;
+        TryReachDestination(routeSeacher.GetOptimalRoutes(sourceNode), sourceNode, optimalCell => {
             var node = collection.Find(optimalCell);
             if(node != null)
                 RecalculateParameters(sourceNode, node);
             else
                 collection.Add(CreatePonderableNode(optimalCell, sourceNode));
+        });
+    }
+    private Boolean TryReachDestination(IEnumerable<CellOnField> possibleCells, PonderableNode<Int32> sourceNode, Action<CellOnField> action = null) {
+        foreach(var cell in possibleCells) {
+            if(collection.WasVisited(cell))
+                continue;
+            if(new Route(sourceNode, cell).Exist(destination)) {
+                collection.Add(CreatePonderableNode(destination, sourceNode));
+                return true;
+            }
+            if(action != null)
+                action(cell);
         }
+        return false;
     }
     private PonderableNode<Int32> CreatePonderableNode(CellOnField node, PonderableNode<Int32> previous = null) {
         var newNode = new PonderableNode<Int32>(node, weightCalculator);

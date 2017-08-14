@@ -22,16 +22,12 @@ public class RouteFromCell<T> : IRoute<T> where T : CellOnField {
         }
         return routeSelector.SelectAvailableCells(source, optimalCells.ToArray());
     }
-    public IEnumerable<T> GetPossibleRoutes(T source) {
+    public IEnumerable<T> GetAdditionalRoutes(T source) {
         List<T> possibleCells = new List<T>();
-        if(BetweenHorizontalConcreteCubes(source))
-            TryAddTopAndBottomCell(possibleCells, source);
-        else if(BetweenVerticalConcreteCubes(source))
-            TryAddLeftAndRightCell(possibleCells, source);
-        else {
-            TryAddTopAndBottomCell(possibleCells, source);
-            TryAddLeftAndRightCell(possibleCells, source);
-        }
+        if(BetweenHorizontalConcreteCubes(source) || BetweenVerticalConcreteCubes(source))
+            return possibleCells;
+        TryAddTopAndBottomCell(possibleCells, source);
+        TryAddLeftAndRightCell(possibleCells, source);
         return routeSelector.SelectAvailableCells(source, possibleCells.ToArray());
     }
 

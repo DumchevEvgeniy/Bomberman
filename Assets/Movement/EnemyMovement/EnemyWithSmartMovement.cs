@@ -35,7 +35,7 @@ public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
         get {
             var barrierTypes = new List<Type>();
             barrierTypes.Add(typeof(ConcreteCube));
-            barrierTypes.Add(typeof(Bonus));
+            barrierTypes.Add(typeof(Bomb));
             if(!smartEnemySettings.wallpass)
                 barrierTypes.Add(typeof(BreakCube));
             var routeSeacher = new RouteSeacher<CellOnField>(barrierTypes);
