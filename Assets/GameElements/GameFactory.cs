@@ -29,8 +29,8 @@ public static class GameFactory {
     }
 
     public static Enemy CreateSmartEnemy(SmartMap map) {
-        var enemy = new SmartEnemy("Enemy", 100, map) {
-            MovementSpeed = 1,
+        var enemy = new SmartEnemy("HardEnemy", 100, map) {
+            MovementSpeed = 2,
             RotationSpeed = 50,
             Wallpass = false
         };

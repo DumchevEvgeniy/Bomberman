@@ -113,7 +113,6 @@
     <Compile Include="Assets\GameElements\AliveObjects\Enemy\SmartEnemy.cs" />
     <Compile Include="Assets\GameMap\Interfaces\IPonderable.cs" />
     <Compile Include="Assets\GameMap\Interfaces\IPonderableByMovement.cs" />
-    <Compile Include="Assets\GameMap\Map\SmartMap.cs" />
     <Compile Include="Assets\Game\PlaneRay.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BombSettings.cs" />
@@ -146,7 +145,7 @@
     <Compile Include="Assets\GameMap\Map\EmptyMap.cs" />
     <Compile Include="Assets\GameMap\Map\Field.cs" />
     <Compile Include="Assets\GameMap\Map\GameMap.cs" />
-    <Compile Include="Assets\GameMap\Map\GameMapWithComponents.cs" />
+    <Compile Include="Assets\GameMap\Map\SmartMap.cs" />
     <Compile Include="Assets\GameMap\MapSize.cs" />
     <Compile Include="Assets\GameMap\Cell\DirectedNode.cs" />
     <Compile Include="Assets\GameMap\Cell\PonderableNode.cs" />
@@ -165,8 +164,8 @@
     <Compile Include="Assets\Movement\PlayerMovement\PlayerMovement.cs" />
     <Compile Include="Assets\Movement\PlayerMovement\PlayerRotation.cs" />
     <Compile Include="Assets\Movement\PlayerMovement\PlayerSmoothMovement.cs" />
-    <Compile Include="Assets\Movement\ShortestMovement\MovementSupport\CellMovementSolver.cs" />
-    <Compile Include="Assets\Movement\ShortestMovement\MovementSupport\NodeWeightCalculator.cs" />
+    <Compile Include="Assets\Movement\ShortestMovement\MovementCalculator\CellMovementCalculator.cs" />
+    <Compile Include="Assets\Movement\ShortestMovement\MovementCalculator\NodeWeightCalculator.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementProvider.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementEnumerator.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementIterator.cs" />

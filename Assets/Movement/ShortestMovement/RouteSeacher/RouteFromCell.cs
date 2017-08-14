@@ -12,7 +12,7 @@ public class RouteFromCell<T> : IRoute<T> where T : CellOnField {
         List<T> optimalCells = new List<T>();
         if(BetweenHorizontalConcreteCubes(source))
             TryAddTopAndBottomCell(optimalCells, source);
-        if(BetweenVerticalConcreteCubes(source))
+        else if(BetweenVerticalConcreteCubes(source))
             TryAddLeftAndRightCell(optimalCells, source);
         else {
             TryAddCell(optimalCells, source.Owner, source.IndexRow, source.IndexColumn - 2);
@@ -26,7 +26,7 @@ public class RouteFromCell<T> : IRoute<T> where T : CellOnField {
         List<T> possibleCells = new List<T>();
         if(BetweenHorizontalConcreteCubes(source))
             TryAddTopAndBottomCell(possibleCells, source);
-        if(BetweenVerticalConcreteCubes(source))
+        else if(BetweenVerticalConcreteCubes(source))
             TryAddLeftAndRightCell(possibleCells, source);
         else {
             TryAddTopAndBottomCell(possibleCells, source);

@@ -14,8 +14,7 @@ public class PonderableNode<T> : RelatedNode, IComparable<T> where T : IComparab
     public PonderableNode(Int32 indexRow, Int32 indexColumn, Field owner, IPonderable<PonderableNode<T>, T> weightCalculator)
         : this(indexRow, indexColumn, owner, weightCalculator, null) { }
     public PonderableNode(CellOnField cell, IPonderable<PonderableNode<T>, T> weightCalculator, IComparer<T> weightComparer)
-        : this(cell.IndexRow, cell.IndexColumn, cell.Owner, weightCalculator, weightComparer) {
-    }
+        : this(cell.IndexRow, cell.IndexColumn, cell.Owner, weightCalculator, weightComparer) { }
     public PonderableNode(CellOnField cell, IPonderable<PonderableNode<T>, T> weightCalculator)
         : this(cell, weightCalculator, null) { }
 

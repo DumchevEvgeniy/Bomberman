@@ -11,11 +11,10 @@ public class DirectedNode : CellOnField {
     public DirectedNode(CellOnField cellOnField)
         : this(cellOnField.IndexRow, cellOnField.IndexColumn, cellOnField.Owner) { }
 
-    public Vector3 GetRelativeDirection(Cell destination) {
-        var xDirection = (IndexRow - destination.IndexRow).Normalize();
-        var yDirection = (IndexColumn - destination.IndexColumn).Normalize();
-        var zDirection = (IndexColumn - destination.IndexColumn).Normalize();
-        return new Vector3(xDirection, yDirection, zDirection);
+    public Vector3 GetRelativeDirection(Cell node) {
+        var xDirection = (IndexRow - node.IndexRow).Normalize();
+        var zDirection = (IndexColumn - node.IndexColumn).Normalize();
+        return new Vector3(xDirection, 0, zDirection);
     }
 }
 

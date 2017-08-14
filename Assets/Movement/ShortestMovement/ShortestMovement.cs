@@ -9,7 +9,7 @@ public class ShortestMovement {
     protected IPonderable<PonderableNode<Int32>, Int32> weightCalculator;
     protected ShortestMovementEnumerator collection;
     public Boolean ExistRoute { get { return Route == null; } }
-    public List<CellOnField> Route { get; private set; }
+    public List<PonderableNode<Int32>> Route { get; private set; }
 
     public ShortestMovement(PonderableNode<Int32> source, PonderableNode<Int32> destination, 
         IRoute<CellOnField> routeSeacher, IPonderable<PonderableNode<Int32>, Int32> weightCalculator) {
@@ -36,8 +36,10 @@ public class ShortestMovement {
         foreach(var optimalCell in routeSeacher.GetOptimalRoutes(sourceNode)) {
             if(collection.WasVisited(optimalCell))
                 continue;
-            if(new Route(sourceNode, optimalCell).Contains(destination))
+            if(new Route(sourceNode, optimalCell).Exist(destination)) {
                 collection.Add(CreatePonderableNode(destination, sourceNode));
+                continue;
+            }
             var node = collection.Find(optimalCell);
             if(node != null)
                 RecalculateParameters(sourceNode, node);
@@ -56,18 +58,20 @@ public class ShortestMovement {
     }
     private void RecalculateParameters(PonderableNode<Int32> from, PonderableNode<Int32> to) {
         var weight = from.CalculateWeight(to, destination);
-        if(to.CompareTo(weight) < 0) {
+        if(to.CompareTo(weight) > 0) {
             to.Weight = weight;
             to.PreviousNode = from;
             to.Direction = to.GetRelativeDirection(from);
         }
     }
     private void RouteInitialize(PonderableNode<Int32> last) {
-        Route = new List<CellOnField>();
+        Route = new List<PonderableNode<Int32>>();
         Route.Add(last);
-        var current = last;
-        while(current.PreviousNode != null)
-            Route.Add(current.PreviousNode as PonderableNode<Int32>);
+        PonderableNode<Int32> current = last;
+        while(current.PreviousNode != null) {
+            current = current.PreviousNode as PonderableNode<Int32>;
+            Route.Add(current);
+        }
         Route.Reverse();
     }
 }

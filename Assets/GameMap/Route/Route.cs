@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,6 +12,10 @@ public class Route : IEnumerable<CellOnField> {
         SecondCell = secondCell;
     }
 
+    public Boolean Exist(Cell cell) {
+        return this.Any(el => el.Equals(cell));
+    }
+
     public Boolean IsHorizontal() {
         return FirstCell.IndexRow == SecondCell.IndexRow;
     }
@@ -20,7 +25,7 @@ public class Route : IEnumerable<CellOnField> {
 
     public IEnumerator<CellOnField> GetEnumerator() {
         var field = FirstCell.Owner;
-        if(IsHorizontal()) {
+        if(IsVertical()) {
             var from = Math.Min(FirstCell.IndexRow, SecondCell.IndexRow);
             var to = Math.Max(FirstCell.IndexRow, SecondCell.IndexRow);
             for(Int32 indexRow = from; indexRow <= to; indexRow++)
