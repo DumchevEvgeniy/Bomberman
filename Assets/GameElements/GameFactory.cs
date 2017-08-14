@@ -31,7 +31,7 @@ public static class GameFactory {
     public static Enemy CreateSmartEnemy(SmartMap map) {
         var enemy = new SmartEnemy("HardEnemy", 100, map) {
             MovementSpeed = 2,
-            RotationSpeed = 50,
+            RotationSpeed = 70,
             Wallpass = false
         };
         enemy.AddScriptType(typeof(EnemyWithSmartMovement));

@@ -16,7 +16,7 @@ public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
 
     protected override Boolean CanMove() {
         if(CanSmartMove())
-            return true; 
+            return GetRotationAngle() == 0 ? true : false;
         provider = null;
         return base.CanMove();
     }
@@ -28,7 +28,7 @@ public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
         return GetAngle(first, second);
     }
     protected override Boolean NeededRotateAfterMoving(GameObject gameObject) {
-        return provider.ExistRoute ? false : base.NeededRotateAfterMoving(gameObject);
+        return (provider == null || !provider.ExistRoute) ? base.NeededRotateAfterMoving(gameObject) : false;
     }
 
     protected virtual IRoute<CellOnField> RouteSeacher {
@@ -54,14 +54,24 @@ public class EnemyWithSmartMovement : EnemyWithSmoothMovement {
         provider = new ShortestMovementProvider(gameObject.transform.forward, enemyPosition, playerPositon);
         provider.RouteSeacher = RouteSeacher;
         provider.BuildARoute();
-        if(!provider.ExistRoute)
-            return false;
-        return GetRotationAngle() == 0 ? true : false;
+        return provider.ExistRoute;
     }
     private Single GetAngle(DirectedNode first, DirectedNode second) {
-        var rotation = -first.GetRelativeDirection(second);
-        return Vector3.Angle(first.Direction, rotation);
+        var mainDirection = first.Direction;
+        var neededDirection = second.GetRelativeDirection(first);
+        if(mainDirection == neededDirection)
+            return 0;
+        if(mainDirection == -neededDirection)
+            return random.Next(0, 2) == 0 ? -180 : 180;
+        if(mainDirection == Vector3.right)
+            return neededDirection == Vector3.forward ? -90 : 90;
+        if(mainDirection == Vector3.left)
+            return neededDirection == Vector3.back ? -90 : 90;
+        if(mainDirection == Vector3.back)
+            return neededDirection == Vector3.right ? -90 : 90;
+        return neededDirection == Vector3.left ? -90 : 90;
     }
+
     private CellOnField GetCellOnField(Vector3 position) {
         var cell = position.ToCell();
         return field.GetCell(cell.IndexRow, cell.IndexColumn);

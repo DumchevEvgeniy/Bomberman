@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cccaf699935bc41abe6c846f56d533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 5
+  length: 7
   width: 5
   sandCubesCount: 0
   easyEnemiesCount: 0

@@ -8,7 +8,7 @@ public class ShortestMovement {
     protected IRoute<CellOnField> routeSeacher;
     protected IPonderable<PonderableNode<Int32>, Int32> weightCalculator;
     protected ShortestMovementEnumerator collection;
-    public Boolean ExistRoute { get { return Route == null; } }
+    public Boolean ExistRoute { get { return Route != null; } }
     public List<PonderableNode<Int32>> Route { get; private set; }
 
     public ShortestMovement(PonderableNode<Int32> source, PonderableNode<Int32> destination, 

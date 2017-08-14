@@ -53,6 +53,16 @@ public static class VectorExtensions {
     public static Cell ToCell(this Vector3 vector) {
         return new Cell((Int32)vector.x, (Int32)vector.z);
     }
+
+    public static Int32 Sign(this Vector3 vector) {
+        Int32 sign = Math.Sign(vector.x);
+        if(sign != 0)
+            return sign;
+        sign = Math.Sign(vector.y);
+        if(sign != 0)
+            return sign;
+        return Math.Sign(vector.z);
+    } 
 }
 
 public static class SceneExtensions {
