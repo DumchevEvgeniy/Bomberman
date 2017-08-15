@@ -3,7 +3,8 @@
 public static class GameFactory {
     public static Bomberman CreateBomberSnowman() {
         var bomberman = new Bomberman() {
-            PrefabName = "Snowman",//"BomberAgent",
+            //PrefabName = "Snowman",
+            PrefabName = "BomberAgent",
             Wallpass = false,
             PreDetonatePossible = false,
             BangDistance = 1,

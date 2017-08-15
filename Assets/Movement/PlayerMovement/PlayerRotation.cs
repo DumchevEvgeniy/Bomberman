@@ -2,61 +2,53 @@
 using UnityEngine;
 
 public class PlayerRotation : BaseMovementAbility {
-    private const Int32 circleQuartet = 90;
-    private const Int32 circleHalf = 180;
-    private const Int32 circleLength = 360;
+    private const Int32 circleRight = 0;
+    private const Int32 circleDown = 90;
+    private const Int32 circleLeft = 180;
+    private const Int32 circleUp = 270;
+    private const Int32 circleDoubleRight = 360;
+    private static System.Random random = new System.Random();
 
     protected override void OnUpdate() {
         var newPosition = GetNewPosition();
         var oldPosition = transform.rotation.eulerAngles.y;
         var rotation = new Vector3(0, GetRotationCorner(oldPosition, newPosition), 0) * rotationSpeed * Time.deltaTime;
-        transform.Rotate(rotation);
+        transform.Rotate(rotation, Space.World);
     }
 
     private Single GetNewPosition() {
         Single verticalOffset = GetOffsetByForceOfPressing(Input.GetAxis("Vertical"));
         Single horizontalOffset = GetOffsetByForceOfPressing(Input.GetAxis("Horizontal"));
         if(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
-            return GetAverage(circleQuartet + horizontalOffset, circleHalf - verticalOffset);
+            return GetAverage(circleLeft + horizontalOffset, circleUp - verticalOffset);
         if(Input.GetKey(KeyCode.RightArrow ) && Input.GetKey(KeyCode.UpArrow))
-            return GetAverage(-circleQuartet - horizontalOffset, -circleHalf + verticalOffset);
+            return GetAverage(circleDoubleRight - horizontalOffset, circleUp + verticalOffset);
         if(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow))
-            return GetAverage(circleQuartet - horizontalOffset, verticalOffset);
+            return GetAverage(circleLeft - horizontalOffset, circleDown + verticalOffset);
         if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
-            return GetAverage(-circleQuartet - horizontalOffset, -verticalOffset);
+            return GetAverage(circleRight + horizontalOffset, circleDown - verticalOffset);
         if(Input.GetKey(KeyCode.LeftArrow))
-            return circleQuartet;
+            return circleLeft;
         if(Input.GetKey(KeyCode.RightArrow))
-            return -circleQuartet;
+            return circleRight;
         if(Input.GetKey(KeyCode.DownArrow))
-            return 0;
+            return circleDown;
         if(Input.GetKey(KeyCode.UpArrow))
-            return -circleHalf;
+            return circleUp;
         return transform.rotation.eulerAngles.y;
     }
     private Single GetRotationCorner(Single oldPosition, Single newPosition) {
-        var oldPositionOnCircle = ToPositionOnCircel(oldPosition);
-        var newPositionOnCircle = ToPositionOnCircel(newPosition);
-        var minPath = newPositionOnCircle - oldPositionOnCircle;
-        if(Mathf.Abs(minPath) == circleHalf)
-            return new System.Random().Next(0, 2) == 0 ? circleHalf : -circleHalf;
-        if(minPath < -circleHalf)
-            return minPath + circleLength;
-        if(minPath > circleHalf)
-            return minPath - circleLength;
+        var minPath = newPosition - oldPosition;
+        if(Mathf.Abs(minPath) == circleLeft)
+            return random.Next(0, 2) == 0 ? circleLeft : -circleLeft;
+        if(minPath < -circleLeft)
+            return minPath + circleDoubleRight;
+        if(minPath > circleLeft)
+            return minPath - circleDoubleRight;
         return minPath;
     }
-    private Single ToPositionOnCircel(Single position) {
-        while(position < -circleHalf && position >= circleHalf) {
-            if(position < -circleHalf)
-                position += circleLength;
-            if(position >= circleHalf)
-                position -= circleLength;
-        }
-        return position;
-    }
     private Single GetOffsetByForceOfPressing(Single force) {
-        return circleQuartet - Math.Abs(circleQuartet * force);
+        return circleDown * (1 - Math.Abs(force));
     }
     private Single GetAverage(Single firstValue, Single secondValue) {
         return (Single)((firstValue + secondValue) / 2.0);
