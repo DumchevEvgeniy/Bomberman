@@ -3,7 +3,7 @@
 public static class GameFactory {
     public static Bomberman CreateBomberSnowman() {
         var bomberman = new Bomberman() {
-            PrefabName = "Snowman",
+            PrefabName = "Snowman",//"BomberAgent",
             Wallpass = false,
             PreDetonatePossible = false,
             BangDistance = 1,
@@ -15,6 +15,7 @@ public static class GameFactory {
         };
         bomberman.AddScriptType(typeof(PlayerRotation));
         bomberman.AddScriptType(typeof(PlayerMovement));
+        bomberman.AddScriptType(typeof(PlayerDeath));
         return bomberman;
     }
 

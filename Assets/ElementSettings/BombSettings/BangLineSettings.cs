@@ -48,7 +48,8 @@ public class BangLineSettings : MonoBehaviour {
     private void UpdateBangSettings() {
         var main = bang.main;
         main.duration = duration;
-        main.startSpeed = distance;
+        main.startSpeed = distance + 0.2f;
+        main.simulationSpeed = distance * 40;
     }
     private void Callback(GameObject gameObject) {
         hitObjects.Add(gameObject);

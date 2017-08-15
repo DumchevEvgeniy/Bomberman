@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -110,50 +108,48 @@
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\PlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\PlayerSettings\WallpassPlayerSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangLineSettings.cs" />
-    <Compile Include="Assets\GameElements\AliveObjects\Enemy\SmartEnemy.cs" />
-    <Compile Include="Assets\GameMap\Interfaces\IPonderable.cs" />
-    <Compile Include="Assets\GameMap\Interfaces\IPonderableByMovement.cs" />
-    <Compile Include="Assets\Game\PlaneRay.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BangSettings.cs" />
     <Compile Include="Assets\ElementSettings\BombSettings\BombSettings.cs" />
     <Compile Include="Assets\ElementSettings\BreakCubeSettings.cs" />
     <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
     <Compile Include="Assets\Extensions.cs" />
-    <Compile Include="Assets\GameElements\AliveObjects\Player\Bomberman.cs" />
-    <Compile Include="Assets\GameElements\AliveObjects\Player\PlayerWithHand.cs" />
-    <Compile Include="Assets\GameElements\GameFactory.cs" />
     <Compile Include="Assets\Game\BangController.cs" />
     <Compile Include="Assets\Game\BaseBangController.cs" />
     <Compile Include="Assets\Game\LevelCreator.cs" />
+    <Compile Include="Assets\Game\PlaneRay.cs" />
     <Compile Include="Assets\GameElements\AliveObjects\Enemy\Enemy.cs" />
+    <Compile Include="Assets\GameElements\AliveObjects\Enemy\SmartEnemy.cs" />
     <Compile Include="Assets\GameElements\AliveObjects\MovementObject.cs" />
+    <Compile Include="Assets\GameElements\AliveObjects\Player\Bomberman.cs" />
     <Compile Include="Assets\GameElements\AliveObjects\Player\Player.cs" />
+    <Compile Include="Assets\GameElements\AliveObjects\Player\PlayerWithHand.cs" />
     <Compile Include="Assets\GameElements\Bomb\Bang.cs" />
     <Compile Include="Assets\GameElements\Bomb\Bomb.cs" />
     <Compile Include="Assets\GameElements\Bonus\Bonus.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObject.cs" />
     <Compile Include="Assets\GameElements\DynamicGameObjectCrator.cs" />
     <Compile Include="Assets\GameElements\GameElements.cs" />
+    <Compile Include="Assets\GameElements\GameFactory.cs" />
     <Compile Include="Assets\GameElements\GameObjectLoader.cs" />
     <Compile Include="Assets\GameElements\ModelsOnMap\BreakCube.cs" />
     <Compile Include="Assets\GameElements\ModelsOnMap\ConcreteCube.cs" />
     <Compile Include="Assets\GameElements\ModelsOnMap\MapFloor.cs" />
     <Compile Include="Assets\GameEnums.cs" />
-    <Compile Include="Assets\GameMap\Map\BaseMap.cs" />
     <Compile Include="Assets\GameMap\Cell\Cell.cs" />
     <Compile Include="Assets\GameMap\Cell\CellOnField.cs" />
+    <Compile Include="Assets\GameMap\Cell\DirectedNode.cs" />
+    <Compile Include="Assets\GameMap\Cell\PonderableNode.cs" />
+    <Compile Include="Assets\GameMap\Cell\RelatedNode.cs" />
+    <Compile Include="Assets\GameMap\Interfaces\IPonderable.cs" />
+    <Compile Include="Assets\GameMap\Interfaces\IPonderableByMovement.cs" />
+    <Compile Include="Assets\GameMap\Interfaces\IRoute.cs" />
+    <Compile Include="Assets\GameMap\Interfaces\IRouteAvailable.cs" />
+    <Compile Include="Assets\GameMap\Map\BaseMap.cs" />
     <Compile Include="Assets\GameMap\Map\EmptyMap.cs" />
     <Compile Include="Assets\GameMap\Map\Field.cs" />
     <Compile Include="Assets\GameMap\Map\GameMap.cs" />
     <Compile Include="Assets\GameMap\Map\SmartMap.cs" />
     <Compile Include="Assets\GameMap\MapSize.cs" />
-    <Compile Include="Assets\GameMap\Cell\DirectedNode.cs" />
-    <Compile Include="Assets\GameMap\Cell\PonderableNode.cs" />
-    <Compile Include="Assets\GameMap\Cell\RelatedNode.cs" />
-    <Compile Include="Assets\GameMap\Interfaces\IRoute.cs" />
-    <Compile Include="Assets\GameMap\Interfaces\IRouteAvailable.cs" />
-    <Compile Include="Assets\Movement\ShortestMovement\RouteSeacher\RouteFromCell.cs" />
-    <Compile Include="Assets\Movement\ShortestMovement\RouteSeacher\RouteSeacher.cs" />
     <Compile Include="Assets\GameMap\Route\Route.cs" />
     <Compile Include="Assets\GameMap\Route\RouteWithBarrier.cs" />
     <Compile Include="Assets\Movement\BaseMovementAbility.cs" />
@@ -166,10 +162,12 @@
     <Compile Include="Assets\Movement\PlayerMovement\PlayerSmoothMovement.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\MovementCalculator\CellMovementCalculator.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\MovementCalculator\NodeWeightCalculator.cs" />
-    <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementProvider.cs" />
+    <Compile Include="Assets\Movement\ShortestMovement\RouteSeacher\RouteFromCell.cs" />
+    <Compile Include="Assets\Movement\ShortestMovement\RouteSeacher\RouteSeacher.cs" />
+    <Compile Include="Assets\Movement\ShortestMovement\ShortestMovement.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementEnumerator.cs" />
     <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementIterator.cs" />
-    <Compile Include="Assets\Movement\ShortestMovement\ShortestMovement.cs" />
+    <Compile Include="Assets\Movement\ShortestMovement\ShortestMovementProvider.cs" />
     <Compile Include="Assets\Movement\SmoothMovement\SmoothMovementBase.cs" />
     <Compile Include="Assets\Movement\SmoothMovement\SmoothMovementForEnemy.cs" />
     <Compile Include="Assets\Movement\SmoothMovement\SmoothMovementForPlayer.cs" />
@@ -183,7 +181,6 @@
     <Compile Include="Assets\PlayerDeath.cs" />
     <Compile Include="Assets\TextSettings.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

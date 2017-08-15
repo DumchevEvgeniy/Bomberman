@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 1
   timeOfDeath: 2
-  bangLifeTime: 0.5
+  bangLifeTime: 1
 --- !u!135 &135959478671185924
 SphereCollider:
   m_ObjectHideFlags: 1
