@@ -11,22 +11,12 @@ public static class EnumerableExtensions {
 }
 
 public static class GameObjectExtensions {
-    public static GameObject SetNewPosition(this GameObject gameObject, Single x, Single y, Single z) {
-        gameObject.transform.position = new Vector3(x, y, z);
+    public static GameObject SetPosition(this GameObject gameObject, Single x, Single y, Single z) {
+        gameObject.transform.position.Set(x, y, z);
         return gameObject;
     }
-    public static GameObject SetNewPosition(this GameObject gameObject, Coordinate coordinate, Single value) {
-        var x = gameObject.transform.position.x;
-        var y = gameObject.transform.position.y;
-        var z = gameObject.transform.position.z;
-        switch(coordinate) {
-            case Coordinate.X:
-                return gameObject.SetNewPosition(value, y, z);
-            case Coordinate.Y:
-                return gameObject.SetNewPosition(x, value, z);
-            case Coordinate.Z:
-                return gameObject.SetNewPosition(x, y, value);
-        }
+    public static GameObject SetPosition(this GameObject gameObject, Coordinate coordinate, Single value) {
+        gameObject.transform.position.Set(coordinate, value);
         return gameObject;
     }
 
@@ -52,6 +42,24 @@ public static class GameObjectExtensions {
 public static class VectorExtensions {
     public static Cell ToCell(this Vector3 vector) {
         return new Cell((Int32)vector.x, (Int32)vector.z);
+    }
+
+    public static Vector3 Set(this Vector3 vector, Coordinate coordinate, Single value) {
+        var x = vector.x;
+        var y = vector.y;
+        var z = vector.z;
+        switch(coordinate) {
+            case Coordinate.X:
+                vector.Set(value, y, z);
+                break;
+            case Coordinate.Y:
+                vector.Set(x, value, z);
+                break;
+            case Coordinate.Z:
+                vector.Set(x, y, value);
+                break;
+        }
+        return vector;
     }
 
     public static Int32 Sign(this Vector3 vector) {

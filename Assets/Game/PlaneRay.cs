@@ -10,8 +10,10 @@ public class PlaneRay {
     private readonly Vector3 startPosition;
     public Single Distance { get; set; }
 
-    public PlaneRay(Vector3 startPosition, Vector3 direction) {
-        this.startPosition = startPosition;
+    public PlaneRay(Vector3 startPosition, Vector3 direction) :
+        this(startPosition, Vector3.zero, direction) { }
+    public PlaneRay(Vector3 centerPosition, Vector3 offsetPosition, Vector3 direction) {
+        startPosition = centerPosition - offsetPosition;
         this.direction = direction;
         plane = GetPlane(direction);
     }

@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4795181561692106}
   - component: {fileID: 137653896144217930}
-  - component: {fileID: 64551750306044430}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +142,7 @@ GameObject:
   - component: {fileID: 4265872041931064}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,7 +263,7 @@ GameObject:
   - component: {fileID: 137030202617611728}
   m_Layer: 0
   m_Name: Plane.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,6 +414,7 @@ GameObject:
   - component: {fileID: 95810879333573486}
   - component: {fileID: 54117955015999922}
   - component: {fileID: 143896766650844680}
+  - component: {fileID: 65078390150530146}
   m_Layer: 0
   m_Name: BomberAgent
   m_TagString: Player
@@ -1075,20 +1075,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64551750306044430
-MeshCollider:
+--- !u!65 &65078390150530146
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009540501056232}
+  m_GameObject: {fileID: 1742187104235106}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 2892de347df6e5b4c8402088313f1f09, type: 3}
+  m_Size: {x: 0.7, y: 2, z: 0.7}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &95810879333573486
 Animator:
   serializedVersion: 3
@@ -1254,10 +1252,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.3
+  m_Height: 1
+  m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}

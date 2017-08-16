@@ -17,6 +17,19 @@ public class BombSettings : MonoBehaviour {
         StartCoroutine(Die());
     }
 
+    public void Update() {
+        if(!boxCollider.isTrigger)
+            return;
+        var position = gameObject.GetIntegerPosition().Set(Coordinate.Y, 1);
+        var hitObjects = new PlaneRay(position, new Vector3(0, 0, 0.49f), Vector3.forward) { Distance = 0.98f }.Cast();
+        foreach(var hitElement in hitObjects) {
+            var hitObject = hitElement.transform.gameObject.GetParent();
+            if(hitObject.CompareTag(Player.tag))
+                return;
+        }
+        boxCollider.isTrigger = false;
+    }
+
     private IEnumerator Die() {
         yield return new WaitForSeconds(timeOfDeath);
         DetonateABomb();
@@ -31,17 +44,6 @@ public class BombSettings : MonoBehaviour {
     }
     public void AddActionAfterDeath(Action action) {
         actionAfterDeath += action;
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if(other is CharacterController)
-            StartCoroutine(EnableBoxColliderWithDelay(0.3f));
-    }
-
-    private IEnumerator EnableBoxColliderWithDelay(Single delay) {
-        yield return new WaitForSeconds(delay);
-        if(gameObject != null)
-            boxCollider.isTrigger = false;
     }
 
     private void MakeABang() {

@@ -8,6 +8,7 @@ public class PlayerMovement : BasePlayerMovement {
         Single deltaZ = Input.GetAxis("Horizontal") * movementSpeed;
         var movement = new Vector3(deltaX, 0, deltaZ);
         characterController.SimpleMove(movement);
-        animator.SetBool("CanRun", deltaX != 0 || deltaZ != 0);
+        if(animator != null)
+            animator.SetBool("CanRun", deltaX != 0 || deltaZ != 0);
     }
 }

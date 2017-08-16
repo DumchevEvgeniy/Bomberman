@@ -13,8 +13,8 @@ public class SmoothMovementForEnemy : SmoothMovementBase {
     }
     protected void PostAction(GameObject gameObject) {
         var position = gameObject.transform.position;
-        gameObject.SetNewPosition(Coordinate.X, (Int32)Math.Round(position.x))
-            .SetNewPosition(Coordinate.Z, (Int32)Math.Round(position.z));
+        gameObject.SetPosition(Coordinate.X, (Int32)Math.Round(position.x))
+            .SetPosition(Coordinate.Z, (Int32)Math.Round(position.z));
     }
     protected override Int32 GetNormalCountFrame() {
         return 30;

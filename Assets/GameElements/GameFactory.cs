@@ -22,7 +22,7 @@ public static class GameFactory {
 
     public static Enemy CreateEasyEnemy() {
         var enemy = new Enemy("Enemy", 100) {
-            MovementSpeed = 1,
+            MovementSpeed = 2f,
             RotationSpeed = 50,
             Wallpass = false
         };

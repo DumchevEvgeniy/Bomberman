@@ -214,16 +214,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cccaf699935bc41abe6c846f56d533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 11
-  width: 11
-  sandCubesCount: 10
-  easyEnemiesCount: 1
+  length: 13
+  width: 31
+  sandCubesCount: 40
+  easyEnemiesCount: 5
   hardEnemyCount: 0
-  bonusBombsCount: 2
-  bonusFlamesCount: 2
-  bonusSpeedCount: 2
-  bonusWallpassCount: 2
-  bonusDetonatorCount: 2
+  bonusBombsCount: 5
+  bonusFlamesCount: 5
+  bonusSpeedCount: 5
+  bonusWallpassCount: 5
+  bonusDetonatorCount: 5
 --- !u!4 &1464408242
 Transform:
   m_ObjectHideFlags: 0
