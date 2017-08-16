@@ -20,6 +20,14 @@ public static class GameObjectExtensions {
         return gameObject;
     }
 
+    public static Boolean ActionWithAnimator(this GameObject gameObject, Action<Animator> action) {
+        var animator = gameObject.GetComponent<Animator>();
+        if(animator == null)
+            return false;
+        action(animator);
+        return true;
+    }
+
     public static GameObject GetParent(this GameObject gameObject) {
         GameObject parentObject = gameObject;
         while(parentObject.transform.parent != null)

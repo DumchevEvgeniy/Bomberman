@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class PlayerSettings : WallpassPlayerSettings {
     public Int32 numberOfLives = 3;
@@ -12,5 +13,8 @@ public class PlayerSettings : WallpassPlayerSettings {
     public override void Die() {
         base.Die();
         numberOfLives--;
+        var character = GetComponent<CharacterController>();
+        if(character != null)
+            character.enabled = false;
     }
 }

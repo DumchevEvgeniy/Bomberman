@@ -93,12 +93,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AnimatorControllers\PlayerAnimator.cs" />
     <Compile Include="Assets\BomberAbility\BomberAbility.cs" />
     <Compile Include="Assets\BomberAbility\CunningBomberAbility.cs" />
     <Compile Include="Assets\BonusScripts\BaseBonusRotation.cs" />
     <Compile Include="Assets\BonusScripts\BonusInAction.cs" />
     <Compile Include="Assets\BonusScripts\CircleBonusRotation.cs" />
-    <Compile Include="Assets\ComponentCopy.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\AliveObjectSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\EnemySettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\SmartEnemySettings.cs" />

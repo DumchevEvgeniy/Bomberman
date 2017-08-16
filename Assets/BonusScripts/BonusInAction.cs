@@ -1,28 +1,43 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
 public class BonusInAction : MonoBehaviour {
     public BonusTypes bonusTypes;
+    private Boolean started = false;
 
     private void OnTriggerEnter(Collider other) {
         if(!other.gameObject.CompareTag(Player.tag) || ExistBarrier())
             return;
+        if(!started)
+            StartCoroutine(PlayAnimatorAndTake(other.gameObject));
+    }
+
+    private IEnumerator PlayAnimatorAndTake(GameObject player) {
+        started = true;
+        if(PlayerAnimator.PlayTake(player))
+            yield return new WaitForSeconds(0.3f);
+        TakeABonus(player);
+        started = false;
+    }
+
+    private void TakeABonus(GameObject player) {
         switch(bonusTypes) {
             case BonusTypes.Bombs:
-                ActionBonusBombs(other.gameObject);
+                ActionBonusBombs(player);
                 break;
             case BonusTypes.Detonator:
-                ActionBonusDetonator(other.gameObject);
+                ActionBonusDetonator(player);
                 break;
             case BonusTypes.Flames:
-                ActionBonusFlames(other.gameObject);
+                ActionBonusFlames(player);
                 break;
             case BonusTypes.Speed:
-                ActionBonusSpeed(other.gameObject);
+                ActionBonusSpeed(player);
                 break;
             case BonusTypes.Wallpass:
-                ActionBonusWallpass(other.gameObject);
+                ActionBonusWallpass(player);
                 break;
         }
         Destroy(this.gameObject);
@@ -50,9 +65,6 @@ public class BonusInAction : MonoBehaviour {
         if(cunningBombermanSettings == null)
             return;
         cunningBombermanSettings.preDetonatePossible = true;
-        //var newSnowman = new PlayerWithHand().CreateGameObject();
-        //ComponentCopy.PlayerCopy(gameObject, newSnowman);
-        //Destroy(gameObject);
     }
     private void ActionBonusFlames(GameObject gameObject) {
         var bombermanSettings = gameObject.GetComponent<BombermanSettings>();

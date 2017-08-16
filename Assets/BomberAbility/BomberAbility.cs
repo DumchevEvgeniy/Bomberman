@@ -1,25 +1,32 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
-public class BomberAbility : MonoBehaviour  {
+public class BomberAbility : MonoBehaviour {
     public Int32 maxCountBomb = 1;
     protected Int32 bombCounter = 0;
     public Int32 bangDistance = 1;
+    private Boolean bombIsBeingPlanted = false;
 
     private void Update() {
         OnUpdate();
     }
 
     protected virtual void OnUpdate() {
-        if(!Input.GetKeyDown(KeyCode.Space))
+        if(!Input.GetKeyDown(KeyCode.Space) || bombIsBeingPlanted)
             return;
         if(!BombsAreAvailable() || ExistBarrier())
             return;
-        var animator = GetComponent<Animator>();
-        if(animator != null)
-            animator.SetTrigger("StartPlantedBomb");
-        PlantBomb(CreateBomb());
-        //animator.ResetTrigger("StartPlantedBomb");
+        var position = gameObject.GetIntegerPosition();
+        StartCoroutine(PlantBombWithAnimation(position));
+    }
+
+    private IEnumerator PlantBombWithAnimation(Vector3 position) {
+        bombIsBeingPlanted = true;
+        if(PlayerAnimator.PlayPlantedBomb(gameObject))
+            yield return new WaitForSeconds(0.3f);
+        bombIsBeingPlanted = false;
+        PlantBomb(CreateBomb(position));
     }
 
     protected virtual void DetonateBomb() {
@@ -29,8 +36,7 @@ public class BomberAbility : MonoBehaviour  {
         bombCounter++;
     }
 
-    protected GameObject CreateBomb() {
-        var position = gameObject.GetIntegerPosition();
+    protected GameObject CreateBomb(Vector3 position) {       
         var cellForBomb = new Cell((Int32)position.x, (Int32)position.z);
         return new Bomb(cellForBomb, bangDistance, 2, 1) {
             ActionAfterDeath = DetonateBomb,

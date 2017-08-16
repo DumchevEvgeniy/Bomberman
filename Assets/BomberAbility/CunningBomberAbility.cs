@@ -15,6 +15,7 @@ public class CunningBomberAbility : BomberAbility {
             return;
         if(mortgagedBombs.IsEmpty())
             return;
+        PlayerAnimator.PlayDetonate(gameObject);
         GetFirstBomb().GetComponent<BombSettings>().DetonateABomb();
     }
     protected override void DetonateBomb() {
