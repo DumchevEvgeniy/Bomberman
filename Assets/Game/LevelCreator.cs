@@ -15,10 +15,10 @@ public class LevelCreator : MonoBehaviour {
 
     private void Start() {
         var gameMap = new SmartMap(length, width, new MapFloor(), new ConcreteCube());
-        gameMap.AddElements(new GameElements<RandomPlacementOnEmptyPosition>(GameFactory.CreateBomberSnowman(), 1));
+        gameMap.AddElements(new GameElements<RandomPlacementOnEmptyPosition>(GameFactory.CreateBomberman(), 1));
         gameMap.AddElements(new GameElements<RandomPlacementWithPlayerDistance>(new BreakCube(), sandCubesCount));
         gameMap.AddElements(new GameElements<RandomPlacementWithPlayerDistance>(GameFactory.CreateEasyEnemy(), easyEnemiesCount));
-        gameMap.AddElements(new GameElements<RandomPlacementWithPlayerDistance>(GameFactory.CreateSmartEnemy(gameMap), hardEnemyCount));
+        gameMap.AddElements(new GameElements<RandomPlacementWithPlayerDistance>(GameFactory.CreateHardEnemy(gameMap), hardEnemyCount));
         gameMap.AddElements(new GameElements<BonusesRandomPlacement>(GameFactory.CreateBonusBombs(), bonusBombsCount));
         gameMap.AddElements(new GameElements<BonusesRandomPlacement>(GameFactory.CreateBonusFlames(), bonusFlamesCount));
         gameMap.AddElements(new GameElements<BonusesRandomPlacement>(GameFactory.CreateBonusSpeed(), bonusSpeedCount));

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -93,12 +95,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AnimatorControllers\EnemyAnimator.cs" />
     <Compile Include="Assets\AnimatorControllers\PlayerAnimator.cs" />
     <Compile Include="Assets\BomberAbility\BomberAbility.cs" />
     <Compile Include="Assets\BomberAbility\CunningBomberAbility.cs" />
     <Compile Include="Assets\BonusScripts\BaseBonusRotation.cs" />
     <Compile Include="Assets\BonusScripts\BonusInAction.cs" />
     <Compile Include="Assets\BonusScripts\CircleBonusRotation.cs" />
+    <Compile Include="Assets\Death\AliveObjectDeath.cs" />
+    <Compile Include="Assets\Death\EnemyDeath.cs" />
+    <Compile Include="Assets\Death\PlayerDeathAfterBang.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\AliveObjectSettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\EnemySettings.cs" />
     <Compile Include="Assets\ElementSettings\AliveObjectSittings\EnemySettings\SmartEnemySettings.cs" />
@@ -178,7 +184,7 @@
     <Compile Include="Assets\Placement\RandomPlacementMethodWithConsideringPlayerDistance.cs" />
     <Compile Include="Assets\Placement\RandomPlacementOnEmptyPosition.cs" />
     <Compile Include="Assets\Placement\SelectivePlacement.cs" />
-    <Compile Include="Assets\PlayerDeath.cs" />
+    <Compile Include="Assets\Death\PlayerDeath.cs" />
     <Compile Include="Assets\TextSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 
 public static class GameFactory {
-    public static Bomberman CreateBomberSnowman() {
+    public static Bomberman CreateBomberman() {
         var bomberman = new Bomberman() {
             //PrefabName = "Snowman",
-            PrefabName = "BomberAgent",
+            PrefabName = "BomberMonster",
+            //PrefabName = "Hedgehog",
             Wallpass = false,
             PreDetonatePossible = false,
             BangDistance = 1,
             MaxCountBomb = 1,
-            MovementSpeed = 2,
+            MovementSpeed = 1.5f,
             RotationSpeed = 3,
             StartGamePoints = 0,
             StartNumberOfLives = 3
@@ -21,22 +22,28 @@ public static class GameFactory {
     }
 
     public static Enemy CreateEasyEnemy() {
-        var enemy = new Enemy("Enemy", 100) {
-            MovementSpeed = 2f,
+        //var prefabName = "Enemy";
+        var prefabName = "EnemyAgent";
+        var enemy = new Enemy(prefabName, 100) {
+            MovementSpeed = 1f,
             RotationSpeed = 50,
             Wallpass = false
         };
         enemy.AddScriptType(typeof(EnemyWithSmoothMovement));
+        enemy.AddScriptType(typeof(EnemyDeath));
         return enemy;
     }
 
-    public static Enemy CreateSmartEnemy(SmartMap map) {
-        var enemy = new SmartEnemy("HardEnemy", 100, map) {
+    public static Enemy CreateHardEnemy(SmartMap map) {
+        //var prefabName = "HardEnemy";
+        var prefabName = "EnemyAgent";
+        var enemy = new SmartEnemy(prefabName, 100, map) {
             MovementSpeed = 2,
             RotationSpeed = 70,
             Wallpass = false
         };
         enemy.AddScriptType(typeof(EnemyWithSmartMovement));
+        enemy.AddScriptType(typeof(EnemyDeath));
         return enemy;
     }
 

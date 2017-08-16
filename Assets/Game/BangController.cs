@@ -12,9 +12,9 @@ public class BangController : BaseBangController {
     }
 
     public override void ActionWithAttackedObjects(GameObject gameObject) {
-        if(gameObject.CompareTag(Player.tag))
-            KillPlayer(gameObject);
-        if(gameObject.OneFrom(Enemy.tag, BreakCube.tag))
+        if(gameObject.OneFrom(Player.tag, Enemy.tag))
+            KillAliveObject(gameObject);
+        if(gameObject.CompareTag(BreakCube.tag))
             GameObject.Destroy(gameObject);
         if(gameObject.CompareTag(Bonus.tag))
             KillBonus(gameObject);
@@ -30,13 +30,12 @@ public class BangController : BaseBangController {
         for(Int32 i = 0; i < enemyPenaltyCount; i++)
             GameFactory.CreateEasyEnemy().Create().transform.position = position;
     }
-
-    private void KillPlayer(GameObject gameObject) {
-        var playerDeath = gameObject.GetComponent<PlayerDeath>();
-        if(playerDeath == null) {
+    private void KillAliveObject(GameObject gameObject) {
+        var aliveObjectDeath = gameObject.GetComponent<AliveObjectDeath>();
+        if(aliveObjectDeath == null) {
             GameObject.DestroyObject(gameObject);
             return;
         }
-        playerDeath.KillPlayer(() => playerDeath.PlayAnimationAndDieAfterBang(gameObject));
+        aliveObjectDeath.KillPlayer(() => aliveObjectDeath.PlayAnimationAndDieAfterBang(gameObject));
     }
 }

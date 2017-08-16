@@ -14,6 +14,6 @@ public class Player : MovementObject {
     }
 
     protected override String GetPrefabName() {
-        return "Prefabs/" + PrefabName;
+        return "Prefabs/Players/" + PrefabName;
     }
 }

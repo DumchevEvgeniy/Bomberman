@@ -215,15 +215,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 13
-  width: 31
-  sandCubesCount: 40
+  width: 13
+  sandCubesCount: 5
   easyEnemiesCount: 5
   hardEnemyCount: 0
-  bonusBombsCount: 5
-  bonusFlamesCount: 5
-  bonusSpeedCount: 5
-  bonusWallpassCount: 5
-  bonusDetonatorCount: 5
+  bonusBombsCount: 1
+  bonusFlamesCount: 1
+  bonusSpeedCount: 1
+  bonusWallpassCount: 1
+  bonusDetonatorCount: 1
 --- !u!4 &1464408242
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public abstract class EnemyWithSmoothMovementBase : BaseMovementAbility {
     public Single movementDistance = 1f;
     protected SmoothMovementForEnemy smoothMovement;
     protected SmoothRotation smoothRotation;
+    public Boolean enable = true;
 
     protected override void OnStart() {
         base.OnStart();
@@ -22,6 +23,8 @@ public abstract class EnemyWithSmoothMovementBase : BaseMovementAbility {
     protected override void OnUpdate() {
         base.OnUpdate();
         if(smoothMovement.Started || smoothRotation.Started)
+            return;
+        if(!enable)
             return;
         if(CanMove()) {
             smoothMovement.Speed = movementSpeed;

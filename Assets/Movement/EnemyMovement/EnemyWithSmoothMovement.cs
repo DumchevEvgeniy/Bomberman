@@ -26,6 +26,6 @@ public class EnemyWithSmoothMovement : EnemyWithSmoothMovementBase {
     
     private Boolean OnUnevenPosition(GameObject gameObject) {
         var position = gameObject.transform.position;
-        return ((Int32)position.x).IsUneven() && ((Int32)position.z).IsUneven();
+        return position.x.IsUneven() && position.z.IsUneven();
     }
 }
