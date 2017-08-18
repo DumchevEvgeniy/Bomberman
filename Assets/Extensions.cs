@@ -16,7 +16,7 @@ public static class GameObjectExtensions {
         return gameObject;
     }
     public static GameObject SetPosition(this GameObject gameObject, Coordinate coordinate, Single value) {
-        gameObject.transform.position.Set(coordinate, value);
+        gameObject.transform.position = gameObject.transform.position.Set(coordinate, value);
         return gameObject;
     }
 
@@ -88,7 +88,11 @@ public static class SceneExtensions {
 
     public static IEnumerable<GameObject> FindAllBreakCube(this Scene scene) {
         return GetAllElementsByTag(scene, BreakCube.tag);
-    } 
+    }
+
+    public static GameObject FindMainCamera(this Scene scene) {
+        return scene.GetAllElementsByTag("MainCamera").FirstOrDefault();
+    }
 
     public static IEnumerable<GameObject> GetAllElementsByTag(this Scene scene, String tag) {
         return scene.GetRootGameObjects().Where(g => g.CompareTag(tag));

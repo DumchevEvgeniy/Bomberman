@@ -22,7 +22,7 @@ public class PlayerDeath : PlayerDeathAfterBang {
             return;
         if(!other.gameObject.CompareTag(Enemy.tag) || !other.gameObject.GetComponent<AliveObjectSettings>().IsAlive())
             return;
-        KillPlayer(() => PlayAnimationAndDie(other.gameObject));
+        KillAliveObject(() => PlayAnimationAndDie(other.gameObject));
     }
 
     private IEnumerator PlayAnimationAndDie(GameObject other) {

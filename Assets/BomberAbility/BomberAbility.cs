@@ -25,8 +25,8 @@ public class BomberAbility : MonoBehaviour {
         bombIsBeingPlanted = true;
         if(PlayerAnimator.PlayPlantedBomb(gameObject))
             yield return new WaitForSeconds(0.3f);
-        bombIsBeingPlanted = false;
         PlantBomb(CreateBomb(position));
+        bombIsBeingPlanted = false;
     }
 
     protected virtual void DetonateBomb() {
@@ -56,7 +56,7 @@ public class BomberAbility : MonoBehaviour {
         var hitObjects = new PlaneRay(position, new Vector3(0, 0, 0.45f), Vector3.forward) { Distance = 0.9f }.Cast();
         foreach(var hitElement in hitObjects) {
             var hitObject = hitElement.transform.gameObject.GetParent();
-            if(hitObject.OneFrom(BreakCube.tag, Bonus.tag, Enemy.tag))
+            if(hitObject.OneFrom(BreakCube.tag, Bonus.tag, Enemy.tag, Bomb.tag))
                 return true;
         }
         return false;

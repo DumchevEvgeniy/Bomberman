@@ -217,7 +217,7 @@ MonoBehaviour:
   length: 13
   width: 13
   sandCubesCount: 5
-  easyEnemiesCount: 5
+  easyEnemiesCount: 1
   hardEnemyCount: 0
   bonusBombsCount: 1
   bonusFlamesCount: 1
@@ -261,11 +261,10 @@ GameObject:
 --- !u!81 &1873463272
 AudioListener:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 81871694791658306, guid: a149478ea9abadb4fa89e6680f085e2e,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1873463271}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1873463273
 Behaviour:
   m_ObjectHideFlags: 0

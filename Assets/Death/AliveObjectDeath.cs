@@ -13,7 +13,7 @@ public abstract class AliveObjectDeath : MonoBehaviour {
     protected virtual void OnStart() { }
     protected virtual void OnUpdate() { }
 
-    public void KillPlayer(Func<IEnumerator> killFunc) {
+    public void KillAliveObject(Func<IEnumerator> killFunc) {
         StartCoroutine(killFunc());
     }
 
