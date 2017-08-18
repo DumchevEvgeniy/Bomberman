@@ -2476,9 +2476,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  stepAudio: {fileID: 8300000, guid: c88f941f0652e8048be78e94b6879648, type: 3}
+  stepAudio: {fileID: 8300000, guid: a829296e83128554cba9da342d83d361, type: 3}
   deathAfterBangAudio: {fileID: 8300000, guid: 92618fe966302ed4891291f7d0885cf1, type: 3}
-  tauntAudio: {fileID: 8300000, guid: 4fa8028478a2c054383f414407161132, type: 3}
+  tauntAudio: {fileID: 8300000, guid: db949d18a4f4512498a8c3d187434c7d, type: 3}
   damageAudio: {fileID: 8300000, guid: 1344063e1744b2e4ab025bfa90b2e776, type: 3}
 --- !u!137 &137718930810984886
 SkinnedMeshRenderer:

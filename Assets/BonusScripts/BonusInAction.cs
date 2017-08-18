@@ -48,7 +48,7 @@ public class BonusInAction : MonoBehaviour {
         var hitObjects = new PlaneRay(position, new Vector3(0, 0, 0.45f), Vector3.forward) { Distance = 0.9f }.Cast();
         foreach(var hitElement in hitObjects) {
             var hitObject = hitElement.transform.gameObject.GetParent();
-            if(!hitObject.OneFrom(Player.tag, Bonus.tag))
+            if(!hitObject.OneFrom(Player.tag, Bonus.tag, Enemy.tag))
                 return true;
         }
         return false;
