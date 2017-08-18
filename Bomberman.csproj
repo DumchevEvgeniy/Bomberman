@@ -98,6 +98,7 @@
     <Compile Include="Assets\AnimatorControllers\EnemyAnimator.cs" />
     <Compile Include="Assets\AnimatorControllers\PlayerAnimator.cs" />
     <Compile Include="Assets\AudioController\EnemyAudioController.cs" />
+    <Compile Include="Assets\AudioController\ObjectWithAudioSource.cs" />
     <Compile Include="Assets\AudioController\PlayerAudioController.cs" />
     <Compile Include="Assets\BomberAbility\BomberAbility.cs" />
     <Compile Include="Assets\BomberAbility\CunningBomberAbility.cs" />
@@ -122,9 +123,9 @@
     <Compile Include="Assets\ElementSettings\BreakCubeSettings.cs" />
     <Compile Include="Assets\ElementSettings\CameraSettings.cs" />
     <Compile Include="Assets\Extensions.cs" />
-    <Compile Include="Assets\Game\BangController.cs" />
-    <Compile Include="Assets\Game\BaseBangController.cs" />
-    <Compile Include="Assets\Game\LevelCreator.cs" />
+    <Compile Include="Assets\Bang\BangController.cs" />
+    <Compile Include="Assets\Bang\BaseBangController.cs" />
+    <Compile Include="Assets\Game\Level.cs" />
     <Compile Include="Assets\Game\PlaneRay.cs" />
     <Compile Include="Assets\GameElements\AliveObjects\Enemy\Enemy.cs" />
     <Compile Include="Assets\GameElements\AliveObjects\Enemy\SmartEnemy.cs" />

@@ -97,6 +97,16 @@ public static class SceneExtensions {
     public static IEnumerable<GameObject> GetAllElementsByTag(this Scene scene, String tag) {
         return scene.GetRootGameObjects().Where(g => g.CompareTag(tag));
     }
+
+    public static Field GetField(this Scene scene) {
+        var map = scene.GetAllElementsByTag("Map").FirstOrDefault();
+        if(map == null)
+            return null;
+        var level = map.GetComponent<Level>();
+        if(level == null)
+            return null;
+        return level.Map.Field;
+    }
 }
 
 public static class NumberExtensions {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class CellOnField : Cell {
     public Field Owner { get; private set; }
@@ -16,5 +17,10 @@ public class CellOnField : Cell {
     }
     public void AddGameObject(DynamicGameObject dynamicGameObject) {
         DynamicGameObjects.Add(dynamicGameObject);
+    }
+    public void RemoveGameElement(Type elementType) {
+        var element = DynamicGameObjects.FirstOrDefault(el => el.IsDerived(elementType));
+        if(element != null)
+            DynamicGameObjects.Remove(element);
     }
 }

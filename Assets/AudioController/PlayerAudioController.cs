@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerAudioController : MonoBehaviour {
-    public AudioSource audioSource;
+public class PlayerAudioController : ObjectWithAudioSource {
     public AudioClip stepAudio;
     public AudioClip deathAudio;
     public AudioClip deathAfterBangAudio;
@@ -9,26 +8,22 @@ public class PlayerAudioController : MonoBehaviour {
     public AudioClip takeABonusAudio;
     public AudioClip tauntAudio;
 
-    public void Start() {
-        audioSource = GetComponentInChildren<AudioSource>();
-    }
-
     public void PlayStepAudio() {
-        audioSource.PlayOneShot(stepAudio);
+        PlayOneShot(stepAudio);
     }
     public void PlayDeathAudio() {
-        audioSource.PlayOneShot(deathAudio);
+        PlayOneShot(deathAudio);
     }
     public void PlayPlantedBombAudio() {
-        audioSource.PlayOneShot(plantedBombAudio);
+        PlayOneShot(plantedBombAudio);
     }
     public void PlayTakeAbonusAudio() {
-        audioSource.PlayOneShot(takeABonusAudio);
+        PlayOneShot(takeABonusAudio);
     }
     public void PlayDeathAfterBangAudio() {
-        audioSource.PlayOneShot(deathAfterBangAudio);
+        PlayOneShot(deathAfterBangAudio);
     }
     public void PlayTauntAudio() {
-        audioSource.PlayOneShot(tauntAudio);
+        PlayOneShot(tauntAudio);
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class EmptyMap : BaseMap {
-    GameObject gameMap;
+    private GameObject gameMap;
 
     public EmptyMap(Int32 length, Int32 width, DynamicGameObject gameMapTemplate) 
         : base(length, width) {

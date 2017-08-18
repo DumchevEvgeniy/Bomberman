@@ -26,6 +26,16 @@ public class Field : IEnumerable<CellOnField> {
         GetCell(indexRow, indexColumn).AddGameObject(element);
         return this;
     }
+    public Field AddElement(Cell cell, DynamicGameObject element) {
+        return AddElement(cell.IndexRow, cell.IndexColumn, element);
+    }
+
+    public void RemoveElement(Int32 indexRow, Int32 indexColumn, Type type) {
+        if(!OnField(indexRow, indexColumn))
+            return;
+        GetCell(indexRow, indexColumn).RemoveGameElement(type);
+    }
+
     public IEnumerable<DynamicGameObject> GetDynamicGameObjects(Int32 indexRow, Int32 indexColumn) {
         return GetCell(indexRow, indexColumn).DynamicGameObjects;
     }

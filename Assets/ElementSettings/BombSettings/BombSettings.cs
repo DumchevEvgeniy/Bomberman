@@ -36,6 +36,7 @@ public class BombSettings : MonoBehaviour {
     }
 
     public void DetonateABomb() {
+        RemoveFromMap(gameObject);
         Destroy(gameObject);
         StopCoroutine(Die());
         MakeABang();
@@ -57,5 +58,12 @@ public class BombSettings : MonoBehaviour {
         bangSettings.stoppedTags = bangController.GetStoppedTags();
         bangSettings.AddActionWithAttackedObjects(bangController.ActionWithAttackedObjects);
         bangSettings.AddActionAfterBang(bangController.ActionAfterBang);
+    }
+    private void RemoveFromMap(GameObject gameObject) {
+        var field = gameObject.scene.GetField();
+        if(field != null) {
+            var position = gameObject.GetIntegerPosition();
+            field.RemoveElement((Int32)position.x, (Int32)position.z, typeof(Bomb));
+        }
     }
 }

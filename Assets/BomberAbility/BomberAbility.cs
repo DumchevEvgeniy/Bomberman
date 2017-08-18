@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 
 public class BomberAbility : MonoBehaviour {
+    public Int32 bangDistance = 1;
     public Int32 maxCountBomb = 1;
     protected Int32 bombCounter = 0;
-    public Int32 bangDistance = 1;
     private Boolean bombIsBeingPlanted = false;
 
     private void Update() {
@@ -38,10 +38,14 @@ public class BomberAbility : MonoBehaviour {
 
     protected GameObject CreateBomb(Vector3 position) {       
         var cellForBomb = new Cell((Int32)position.x, (Int32)position.z);
-        return new Bomb(cellForBomb, bangDistance, 2, 1) {
+        var bomb = new Bomb(cellForBomb, bangDistance, 2, 1) {
             ActionAfterDeath = DetonateBomb,
             BangController = new BangController()
-        }.Create();
+        };
+        var field = gameObject.scene.GetField();
+        if(field != null)
+            field.AddElement(cellForBomb, bomb);
+        return bomb.Create();
     }
 
     private Boolean BombsAreAvailable() {

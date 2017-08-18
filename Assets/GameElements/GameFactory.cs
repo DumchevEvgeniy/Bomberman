@@ -5,7 +5,6 @@ public static class GameFactory {
         var bomberman = new Bomberman() {
             //PrefabName = "Snowman",
             PrefabName = "BomberMonster",
-            //PrefabName = "Hedgehog",
             Wallpass = false,
             PreDetonatePossible = false,
             BangDistance = 1,
@@ -35,11 +34,11 @@ public static class GameFactory {
     }
 
     public static Enemy CreateHardEnemy(SmartMap map) {
+        var prefabName = "HardEnemyAgent";
         //var prefabName = "HardEnemy";
-        var prefabName = "EnemyAgent";
         var enemy = new SmartEnemy(prefabName, 100, map) {
-            MovementSpeed = 2,
-            RotationSpeed = 70,
+            MovementSpeed = 1.5f,
+            RotationSpeed = 60,
             Wallpass = false
         };
         enemy.AddScriptType(typeof(EnemyWithSmartMovement));

@@ -11,4 +11,7 @@ public class SmartMap : GameMap {
         foreach(var cell in cells)
             Field.GetCell(cell.IndexRow, cell.IndexColumn).AddGameObject(collection.Element);
     }
+    public void AddElements<T>(DynamicGameObject element, Int32 elementsCount) where T : BasePlacement, new() {
+        AddElements(new GameElements<T>(element, elementsCount));
+    }
 }
